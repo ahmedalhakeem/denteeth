@@ -1,0 +1,149 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+form{
+    border: 3px solid #f1f1f1;
+}
+input[type=text], input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=submit]{
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover{
+    opacity: 0.8;
+}
+.imagcontainer{
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+img.avatar{
+    width: 20%;
+    border-radius: 50%;
+}
+h1.apptitle{
+    text-decoration: overline;
+    text-align: center;
+    font-size:80px;
+}
+/* CSS styling of the main page*/
+.wrapper{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f1f1f1;
+    width: 60%;
+    margin: auto;
+    left: 50%;
+}
+.add {
+    border: 3px solid #f1f1f1;
+    width:30%;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 20px;
+    
+}
+.search{ 
+    border: 3px solid #f1f1f1;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 20px;
+
+}
+.all-patients{
+    border: 3px solid #f1f1f1;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 20px;
+
+}
+/* CSS Styling of add_patient*/
+.hea{
+    
+    border: 2px solid #f1f1f1;
+    
+    transform: translate(0, -10px);
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+ 
+/* CSS styling for List of Patients*/
+.list-patients{
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    /*border: 3px solid #ccc;*/
+    width: 40%;
+    margin: auto;
+    left: 50%;
+    text-align: center;
+    /*justify-content: center;*/
+}
+.list-patients >h1{
+    font-size: 90px;
+    color: #4caf50;
+}
+.patient-name{
+    border: 2px dotted #4caf50;
+    margin: 10px auto;
+    border-radius: 5%;
+    width: 50%;
+    position:relative;
+    
+}
+.patient-name a{
+    text-decoration: none;
+    width: 80%;
+}
+/* CSS styling for patient profile*/
+.container {
+    border: 2px solid black;
+}
+.col{
+    border: 1px solid #4caf50;
+    text-align: center;
+}
+
+/*Next appointment table*/
+.styled-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td{
+    padding: 12px;  
+}
+.styled-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}

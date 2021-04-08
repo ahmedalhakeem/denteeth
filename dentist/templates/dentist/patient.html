@@ -1,0 +1,68 @@
+{% extends 'dentist/layout.html' %}
+{% load static %}
+{% block title %}
+Patient's Profile
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 style="text-align: center;">معلومات المريض</h1>
+        <div class="row">
+            <div class="col"><h1>الجنس</h1> </div>
+            <div class="col"><h1>العمر</h1> </div>
+            <div class="col"><h1>رقم الهاتف</h1></div>
+            <div class="col"><h1>الاسم</h1> </div>
+        </div>
+        <div class="row">
+            <div class="col">{{patient.gender}}</div>
+            <div class="col">{{patient.age}}</div>
+            <div class="col">{{patient.contact_number}}</div>
+            <div class="col">{{patient.name}}</div>
+        </div>
+    </div>
+    <!-- Create Add appointment form-->
+    
+    <button id="add-appointment">Add Appointment</button>
+    <div class="appointment-form">
+        <h3>Add a new treatment</h3>
+        <form action="{% url 'add_treatment' patient.id %}" method="POST">
+            {% csrf_token %}
+            patient name: <input type="text" disabled value="{{patient.name}}" name="{{patient.id}}">
+            procedure: <input type="text" name="procedure" placeholder="Procedure">
+            date : <input type="text" id="datepicker" name="date">
+            total_cost: <input type="number" required name="total_cost" placeholder="0.0" min="0">
+            Paid_amout : <input type="number" name="paid_amount" placeholder="0.0">
+            Notes : <input type="text" name="notes" id="notes">
+            status: <input type="checkbox" name="notes" id="notes">
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+    
+    <div class="treat_container">
+        <h1 style="text-align: center;">List of Treatments</h1>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>Procudure</th>
+                    <th>Appointment</th>
+                    <th>Total Cost</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+                {% for treatment in treatments %}
+                <tr class="table-success">
+                    <td>{{treatment.treatment_procedure}}</td>
+                    <td>{{treatment.date_created}}</td>
+                    <td>{{treatment.total_cost}}</td>
+                    <td>{{treatment.notes}}</td>
+                </tr>
+                {% endfor %}
+                
+            
+        </table>
+    </div>
+    
+{% endblock%}
+{% block script %}
+        <script src="{% static 'dentist/index.js'%}"></script>
+{% endblock %}

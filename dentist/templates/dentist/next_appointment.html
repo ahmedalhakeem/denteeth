@@ -1,0 +1,37 @@
+{% extends 'dentist/layout.html'%}
+{% load static %}
+{% block title %}
+Next_appointments
+{% endblock %}
+{% block content %}
+{% if message %}
+    <h1>{{ message }}</h1>
+{% endif %}
+<div class="container">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Treatment</th>
+                <th>Appointment</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in next_appointment %}
+    
+            <tr>
+                <td>{{item.patient_name.name}}</td>
+                <td>{{item.treatment.treatment_procedure}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.notes}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    
+    </table>
+
+</div>
+
+
+{% endblock %}
