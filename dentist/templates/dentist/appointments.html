@@ -1,0 +1,20 @@
+{% extends 'dentist/layout.html' %}
+{% load static %}
+{% block title %}
+Book a new appointment
+{% endblock %}
+{% block content %}
+    <h1>Make a new appointment</h1>
+    <form action="{% url 'appointment' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        Appointment: <input type="text" name="appointment" id="datepicker">
+        total cost: <input type="number" name="total_amount" id="total_amount">
+        notes : <input type="text" name="notes" id="notes">
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'dentist/index.js'%}"></script>
+
+{% endblock %}

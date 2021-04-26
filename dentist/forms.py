@@ -22,6 +22,10 @@ class Add_Patient_form(forms.Form):
     gender = forms.ChoiceField(label="Gender",choices=gender_type, widget=forms.Select(attrs={"class": "form-control",}))
     contact = forms.CharField(label="Contact number", required=True, widget=forms.NumberInput(attrs={"class": "form-control", "placeholder": "Enter Patient's contact number"}))
 
-class Type_nm(forms.Form):
-    number = forms.IntegerField(label="", required=True)
+class Appointment(forms.Form):
+    #class Meta:
+        #model = Next_appointment
+        #fields = ['patient_name', 'treatment', 'date', 'notes']
+    patient_name = forms.ModelChoiceField(required=True,label="patient_name", queryset=Patients.objects.all())
+    treatment_type = forms.ModelChoiceField(required=True,label="treatment_type", queryset=Medication_list.objects.all())
     

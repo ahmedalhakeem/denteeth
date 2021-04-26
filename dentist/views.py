@@ -93,6 +93,31 @@ def patient(request, patient_id):
         "patient": patient,
         "treatments": treatments
     })
+# makes a new  appointment
+def appointment(request):
+    if request.method == "POST":
+
+        app_form = Appointment(request.POST or None)
+        if app_form.is_valid():
+            patient_nam = app_form.cleaned_data["patient_name"]
+            treatment_type = app_form.cleaned_data["treatment_type"]
+            total_amount = request.POST['total_amount']
+            notes = request.POST['notes']
+            date = datetime.strptime(request.POST['appointment'], "%m/%d/%Y %H:%M")
+
+            
+            treatment = Treatment(p_name=patient_nam, treatments=treatment_type, total_cost=total_amount, notes=notes)
+            treatment.save()
+            
+            ne_app = Next_appointment(patient_name=patient_nam, treatment=treatment, date=date, notes=notes)
+            ne_app.save()
+            #ne_app.save()
+            return render(request, "dentist/appointments.html")
+    
+    else:
+        return render(request, "dentist/appointments.html",{
+            "form": Appointment()
+        })
 #Save appointment and total cost
 def add_treatment(request, patient_id):
     patient = Patients.objects.get(pk=patient_id)

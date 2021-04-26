@@ -23,18 +23,24 @@ class Patients(models.Model):
     #appointment = models.ForeignKey(Treatment, on_delete=models.CASCADE, related_name='patient_treat')
 
     def __str__(self):
-        return f"{self.name}, {self.age}, {self.gender}, {self.date_created}"
-class Treatment_list(models.Model):
+        return f"{self.name}"
+class Medication_list(models.Model):
     treatment_title = models.CharField(max_length=100)
-    total_cost= models.IntegerField()
+
+    def __str__(self):
+        return f"{self.treatment_title}"
+    
 
 class Treatment(models.Model):
     p_name= models.ForeignKey(Patients, on_delete=models.CASCADE, related_name="patient_name")
-    treatment_procedure = models.ForeignKey(Treatment_list, on_delete=models.CASCADE, related_name="list", null=True, blank=True)
+    treatments = models.ForeignKey(Medication_list, on_delete=models.CASCADE, related_name="list", null=True, blank=True)
     total_cost = models.IntegerField(default=0)
     status= models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     notes = models.CharField(max_length=100, default="")
+
+    def __str__(self):
+        return f"{self.treatments}"
 
 class Next_appointment(models.Model):
     patient_name = models.ForeignKey(Patients, on_delete=models.CASCADE, related_name="np_name")
