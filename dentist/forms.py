@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from dentist.models import User
 from .models import *
 import datetime
-from bootstrap_datepicker_plus import DatePickerInput, DateTimePickerInput
+#from bootstrap_datepicker_plus import DatePickerInput, DateTimePickerInput
 
 class Admin_Login(forms.Form):
     username= forms.CharField(label="Username", required=True, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter Username"}))

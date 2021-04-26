@@ -151,7 +151,10 @@ def add_treatment(request, patient_id):
 
 
 def next_appointment(request):
-    next_appointments = Next_appointment.objects.all()
+    next_appointments = Next_appointment.objects.all().order_by('-date')
+
+    
+
     if next_appointments.exists():
         return render(request, "dentist/next_appointment.html",{
             "next_appointment": next_appointments

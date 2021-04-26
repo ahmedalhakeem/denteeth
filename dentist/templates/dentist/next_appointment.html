@@ -8,21 +8,22 @@ Next_appointments
     <h1>{{ message }}</h1>
 {% endif %}
 <div class="container">
-    <table class="styled-table">
+    <table class="styled-table" id="tableid">
         <thead>
             <tr>
                 <th>Patient Name</th>
                 <th>Treatment</th>
                 <th>Appointment</th>
                 <th>Notes</th>
+                
             </tr>
         </thead>
         <tbody>
         {% for item in next_appointment %}
     
-            <tr>
+            <tr id="edit_date">
                 <td>{{item.patient_name.name}}</td>
-                <td>{{item.treatment.treatment_procedure}}</td>
+                <td>{{item.treatment}}</td>
                 <td>{{item.date}}</td>
                 <td>{{item.notes}}</td>
             </tr>
@@ -34,4 +35,7 @@ Next_appointments
 </div>
 
 
+{% endblock %}
+{% block script %}
+    <script src="{% static 'dentist/next_appointment.js'%}"></script>
 {% endblock %}
