@@ -147,3 +147,40 @@ h1.apptitle{
 .styled-table tbody tr:last-of-type{
     border-bottom: 2px solid #009879;
 }
+/*next-appointment page ***/
+.appointment-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 1em;
+   
+}
+.appointment-list > div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    border: 1px solid black;
+    text-align: center;
+    background: chartreuse;
+}
+.appointment-list > div:nth-child(odd){
+    color: rebeccapurple;
+}
+.titles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 1em;
+
+}
+.titles >div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    border: 1px solid black;
+    text-align: center;
+    background:brown;
+    color: burlywood;
+}
+
+.edit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}

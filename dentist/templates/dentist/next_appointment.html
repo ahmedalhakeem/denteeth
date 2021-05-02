@@ -7,8 +7,41 @@ Next_appointments
 {% if message %}
     <h1>{{ message }}</h1>
 {% endif %}
-<div class="container">
-    <table class="styled-table" id="tableid">
+    
+    <div class="wrapp">
+        
+            <div class="titles">
+                <div id="pat-name">patient_name</div>
+                <div id="treat">treatment</div>
+                <div id="appointment">appointment</div>
+                <div id="note">notes</div>
+                <div> Edit or Remove</div>
+            
+            </div>
+        
+        {% for item in next_appointment %}
+            <div class="appointment-list">
+                <div class="name">{{item.patient_name}}</div>
+                <div class="treatment">{{item.treatment}}</div>
+                <div class="appointment">{{item.date}}</div>
+                <div class="notes">{{item.notes}}</div>
+                <div class="edit">
+                    <button id="{{item.id}}" class="edit">edit</button>  
+                    <button class="remove">remove</button>
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+
+            <!--<p>{{item.patient_name}}</p>
+            <p>{{item.treatment}}</p>
+            <p>{{item.date}}</p>
+            <p>{{item.notes}}</p>
+            <button class="edit-date">edit</button>
+            <hr>-->
+        
+    <!--<table class="styled-table" id="tableid">
         <thead>
             <tr>
                 <th>Patient Name</th>
@@ -30,10 +63,7 @@ Next_appointments
         </tbody>
         {% endfor %}
     
-    </table>
-
-</div>
-
+    </table>-->
 
 {% endblock %}
 {% block script %}

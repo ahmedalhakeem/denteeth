@@ -152,9 +152,6 @@ def add_treatment(request, patient_id):
 
 def next_appointment(request):
     next_appointments = Next_appointment.objects.all().order_by('-date')
-
-    
-
     if next_appointments.exists():
         return render(request, "dentist/next_appointment.html",{
             "next_appointment": next_appointments
@@ -164,3 +161,33 @@ def next_appointment(request):
         return render(request, "dentist/next_appointment.html",{
             "message" : "No upcoming appointments"
         }) 
+    
+def modify_appointment(request, a_id):
+    edit_app = Next_appointment.objects.get(pk=a_id)
+    patient_names = Patients.objects.all()
+    treatments = Medication_list.objects.all()
+    
+    print(edit_app)
+    if request.method == 'POST':
+        name = request.POST['name']
+        treatment =request.POST['treatment']
+        date = datetime.strptime(request.POST['date'], "%m/%d/%Y %H:%M")
+        notes = request.POST['notes']
+
+        
+        edit_app.name=name
+        edit_app.treatment= treatment
+        edit_app.date = date
+        edit_app.notes = notes
+        edit_app.save()
+        return render(request, 'dentist/modify_appointment.html',{
+            "message": "you made changes successfully"
+        }) 
+    else:
+        return render(request, "dentist/modify_appointment.html",{
+            "edit_app" : edit_app,
+
+            "patients" : patient_names,
+            "medication_list" : treatments
+        })
+ 
