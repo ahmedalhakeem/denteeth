@@ -6,19 +6,20 @@
 {% block content %}
     <form action="{% url 'modify_appointment' edit_app.id %}" method="POST">
         {% csrf_token %}
-        <select name="name" id="">
+        <!--<select name="name" id="">
             {% for names in patients %}
             <option value="{{names.name}}">{{names.name}}</option>
             {% endfor %}
         </select>
         <select name="treatment" id="">
-            {% for items in medication_list %}
-                <option value="">{{items.treatment_title}}</option>
-            {% endfor%}
+                {% for items in treatments %}
+                    <option value="">{{items.treatments}}</option>
+                {% endfor%}
+            </select>-->
             <input type="text" name="date" id="datepicker">
             <input type="text" name="notes" placeholder="change notes">
-        </select>
-        <input type="submit" value="save">
+        
+            <input type="submit" value="save">
     </form>
 
 {% endblock %}
