@@ -121,6 +121,8 @@ def appointment(request):
 #Save appointment and total cost
 def add_treatment(request, patient_id):
     patient = Patients.objects.get(pk=patient_id)
+    # medication list 
+    mediction_list = Medication_list.objects.all()
     if request.method == "POST":
         #procedure is saved in Treatment model
         procedure = request.POST['procedure']
@@ -136,7 +138,7 @@ def add_treatment(request, patient_id):
         remaining_amount = int(total_cost - paid_amount)
         patient.remaining_amount = remaining_amount
         #Treatment model 
-        new_treatment = Treatment(p_name=patient, treatment_procedure=procedure, total_cost=total_cost, notes=notes)
+        new_treatment = Treatment(p_name=patient, treatments=procedure, total_cost=total_cost, notes=notes)
         if new_treatment is not None:
             new_treatment.save()
             patient.save()
@@ -189,4 +191,10 @@ def modify_appointment(request, a_id):
             "patients" : patient_names,
             "treatments" : treatments
         })
+
+def archive(request, treatment_id):
+    treatment = Treatment.objects.get(pk=treatment_id)
+
+
+
  

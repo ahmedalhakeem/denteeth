@@ -16,5 +16,16 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     })
     
-    document.querySelector('.remove').addEventListener('click', event=>remove())
+    document.addEventListener('click', event=>{
+        const item = event.target;
+        if(item.className === 'remove'){
+            const parentitem = item.parentElement;
+            const granditem = parentitem.parentElement;
+            console.log(granditem);
+            
+            granditem.remove();
+        }
+
+        //
+    });
 });

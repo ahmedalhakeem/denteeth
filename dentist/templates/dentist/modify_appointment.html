@@ -6,24 +6,26 @@
 {% block content %}
     <form action="{% url 'modify_appointment' edit_app.id %}" method="POST">
         {% csrf_token %}
-        <!--<select name="name" id="">
-            {% for names in patients %}
-            <option value="{{names.name}}">{{names.name}}</option>
-            {% endfor %}
-        </select>
-        <select name="treatment" id="">
-                {% for items in treatments %}
-                    <option value="">{{items.treatments}}</option>
-                {% endfor%}
-            </select>-->
+            </select>
             <input type="text" name="date" id="datepicker">
             <input type="text" name="notes" placeholder="change notes">
         
-            <input type="submit" value="save">
+            <input type="submit" value="save" id="submit">
     </form>
 
 {% endblock %}
 {% block script %}
     <script src="{% static 'dentist/index.js'%}"></script>
+    <script>
+        window.onunload = refreshParent;
+        function refreshParent(){
+            window.opener.location.reload()
+            window.close();
+        }
+       /* document.querySelector('#submit').addEventListener('click', function(){
+            
+        })*/
+    </script>
+
 
 {% endblock %}    

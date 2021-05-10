@@ -27,7 +27,12 @@ Patient's Profile
         <form action="{% url 'add_treatment' patient.id %}" method="POST">
             {% csrf_token %}
             patient name: <input type="text" disabled value="{{patient.name}}" name="{{patient.id}}">
-            procedure: <input type="text" name="procedure" placeholder="Procedure">
+            <!--procedure: <input type="text" name="procedure" placeholder="Procedure">-->
+            <select name="medication_list" id="">
+                {% for med_list in medication_list %}
+                    <option value="">{{med_list.treatment_title}}</option>
+                {% endfor %}
+            </select>
             date : <input type="text" id="datepicker" name="date">
             total_cost: <input type="number" required name="total_cost" placeholder="0.0" min="0">
             Paid_amout : <input type="number" name="paid_amount" placeholder="0.0">
