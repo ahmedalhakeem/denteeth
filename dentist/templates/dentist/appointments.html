@@ -8,9 +8,9 @@ Book a new appointment
     <form action="{% url 'appointment' %}" method="POST">
         {% csrf_token %}
         {{ form }}
-        Appointment: <input type="text" name="appointment" id="datepicker">
-        total cost: <input type="number" name="total_amount" id="total_amount">
-        notes : <input type="text" name="notes" id="notes">
+        Appointment: <input type="text" name="appointment" id="datepicker" required>
+        <!-- total cost: <input type="number" name="total_amount" id="total_amount" required> -->
+        notes : <input type="text" name="notes" id="notes" required>
         <input type="submit" value="submit">
     </form>
 {% endblock %}

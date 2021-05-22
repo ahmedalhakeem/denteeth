@@ -1,0 +1,113 @@
+{% extends 'dentist/layout.html'%}
+{% load static %}
+{% block title %}
+Next_appointments
+{% endblock %}
+{% block content %}
+
+    {% if message %}
+        <h1>{{ message }}</h1>
+    {% endif %}
+
+    <div class="wrapp">
+            <div class="titles">
+                <div id="pat-name">patient_name</div>
+                <div id="treat">treatment</div>
+                <div id="appointment">appointment</div>
+                <div id="note">notes</div>
+                <!-- <div id="t-cost">Total-cost</div> -->
+                <div> Edit or Remove</div>
+            
+            </div>
+        
+        {% for item in upcoming_appointments %}
+            <div class="appointment-list">
+                <div class="name">{{item.patient_name}}</div>
+                <div class="treatment">{{item.treatment}}</div>
+                <div class="appointment">{{item.date}}</div>
+                <div class="notes">{{item.notes}}</div>
+                <!-- <div class="cost">{{item.treatment.total_cost}}</div> -->
+                <div class="edit">
+                    <button id="{{item.id}}" class="edit">edit</button>  
+                    <!--<button class="remove">remove</button>-->
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="archive">Archive</button>
+
+                    
+                    
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+    <div class="mod mt-5">
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content" id="new_appointment">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <h5 class="modal-title">My PoPup window</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                    </div>
+                        <div class="modal-body">
+                            <h1> if you have next_appointment, click resechedule</h1>
+                            <button type="button" class="btn btn-primary" id="modal-archive" data-bs-dismiss="modal"  onclick="archived()">archive</button>
+                            <button type="button" class="btn btn-primary" id="modal-resechedule" onclick="show_schedule_form()">resechedule</button>
+                        </div>
+
+                    
+                </div>
+
+                <div class="modal-content" id="resechedule-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title">My PoPup window</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="archive-form">
+                            <div class="mb-3">
+                                <label class="form-label required">Name</label>
+                                <input type="text" id="patient_name" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-labe required">treatment</label>
+                                <input type="text" id="treatment_type" class="form-control" disabled>
+                                <!-- <select name="med" id="medlist" class="form-control">
+                                    {% for e in medlist %}
+                                        <option value="{{ e.treatment_title }}">{{ e.treatment_title }}</option>
+                                    {% endfor %}
+                                </select> -->
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-labe required">Paid_amount</label>
+                                <input type="text" id="paid_amount" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-labe required">date</label>
+                                <input type="text" class="form-control" id="datepicker">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">type your message</label>
+                                <textarea id="notes" class="form-control"></textarea>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" onclick="update_schedule()" data-bs-dismiss="modal">Submit</button>
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+    {% endblock %}
+    {% block script %}
+    <script src="{% static 'dentist/next_appointment.js'%}"></script>
+    <script src="{% static 'dentist/index.js'%}"></script>
+
+    {% endblock %}

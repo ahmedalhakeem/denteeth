@@ -150,7 +150,7 @@ h1.apptitle{
 /*next-appointment page ***/
 .appointment-list{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
     padding: 1em;
    
 }
@@ -166,7 +166,7 @@ h1.apptitle{
 }
 .titles{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
     padding: 1em;
 
 }
@@ -181,6 +181,9 @@ h1.apptitle{
 
 .edit {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
+}
+.cost::after{
+    content: " IQD";
 }
