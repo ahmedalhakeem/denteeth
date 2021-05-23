@@ -192,8 +192,8 @@ def modify_appointment(request, a_id):
             "treatments" : treatments
         })
 
-def archive(request, treatment_id):
-    treatment = Treatment.objects.get(pk=treatment_id)
+def archive(request, appointment_id):
+    treatment = Treatment.objects.get(pk=appointment_id)
 
 
 

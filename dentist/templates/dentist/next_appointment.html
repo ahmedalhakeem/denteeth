@@ -27,14 +27,24 @@ Next_appointments
                 <div class="notes">{{item.notes}}</div>
                 <div class="edit">
                     <button id="{{item.id}}" class="edit">edit</button>  
-                    <button class="remove">remove</button>
-                    <button class="archive" id="archive">archive</button>
+                    <button class="remove" >remove</button>
+                    <button class="archive">archive</button>
                 </div>
                 
             </div>
         {% endfor %}
     </div>
-
+    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mymodal">archive</button>
+    <div class="modal" id="mymodal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Archive</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
           
 
 {% endblock %}
