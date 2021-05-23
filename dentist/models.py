@@ -26,6 +26,7 @@ class Patients(models.Model):
         return f"{self.name}"
 class Medication_list(models.Model):
     treatment_title = models.CharField(max_length=100)
+    total_cost = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.treatment_title}"
@@ -34,7 +35,6 @@ class Medication_list(models.Model):
 class Treatment(models.Model):
     p_name= models.ForeignKey(Patients, on_delete=models.CASCADE, related_name="patient_name")
     treatments = models.ForeignKey(Medication_list, on_delete=models.CASCADE, related_name="list", null=True, blank=True)
-    total_cost = models.IntegerField(default=0)
     status= models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     notes = models.CharField(max_length=100, default="")

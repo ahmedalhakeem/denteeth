@@ -6,10 +6,13 @@ urlpatterns = [
     path("logout", views.logout_func, name="logout"),
     path('main', views.main, name="main"),
     path('add_patient', views.add_patient, name="add_patient"),
-    path('patients', views.patients, name="patients"),
+    path('all_patients', views.all_patients, name="all_patients"),
     path('patient/<int:patient_id>', views.patient, name="patient"),
     path('add_treatment/<int:patient_id>', views.add_treatment, name="add_treatment"),
-    path("next_appointment", views.next_appointment, name="next_appointment"),
+    path("upcoming_appointments", views.upcoming_appointments, name="upcoming_appointments"),
     path("appointment", views.appointment, name="appointment"),
-    path("modify_appointment/<int:a_id>", views.modify_appointment, name="modify_appointment")
+    path("change_appointment/<int:a_id>", views.change_appointment, name="change_appointment"),
+    path("modal", views.modal, name="modal"),
+    path("update_schedule", views.update_schedule, name="update_schedule"),
+    path("archived", views.archived, name="archived")
 ]
