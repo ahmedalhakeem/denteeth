@@ -97,11 +97,12 @@ function update_schedule(){
 }
 function archived(){
     const patient_name = document.querySelector('#patient_name');
-    const paid_amount = document.querySelector('#paid_amount').value;
-    console.log(paid_amount);
+    const treatment = document.querySelector('#treatment_type').value;
+    // const paid_amount = document.querySelector('#paid_amount').value;
+    // console.log(paid_amount);
     const id = patient_name.dataset.id;
     console.log(id); 
-    const archive_data = {'id': id, 'paid_amount': paid_amount}
+    const archive_data = {'id': id, 'treatment_type': treatment}
     fetch('archived', {
         method: 'POST',
         headers: {

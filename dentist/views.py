@@ -105,6 +105,8 @@ def appointment(request):
             # total_amount = request.POST['total_amount']
             notes = request.POST['notes']
             date = datetime.strptime(request.POST['appointment'], "%m/%d/%Y %H:%M")
+            
+           
 
             # Save the treatment and type of medication as well as the cost of medication 
             treatment = Treatment(p_name=patient_name, treatments=treatment_type,notes=notes)
@@ -126,54 +128,27 @@ def appointment(request):
             
             # now, we can make a new appointment for this particular patient
             new_appointment = Next_appointment(patient_name=patient_name, treatment=treatment, date=date, notes=notes)
-            new_appointment.save()
-            #ne_app.save()
-            return HttpResponseRedirect(reverse('upcoming_appointment'))
+            all_appointments = Next_appointment.objects.all()
+            list = []
+            # for apo in all_appointments:
+            for e in all_appointments:
+                list.append(e.date)
+            if (new_appointment.date in list):
+                return render(request, "dentist/appointments.html",{
+                    "message" : "this time is already booked"
+                })
+            else:
+                new_appointment.save()
+                return HttpResponseRedirect(reverse('upcoming_appointments'))
     
     else:
         return render(request, "dentist/appointments.html",{
             "form": Appointment()
         })
 
-#Save appointment and total cost
-def add_treatment(request, patient_id):
-    return
-    # patient = Patients.objects.get(pk=patient_id)
-    # # medication list 
-    # mediction_list = Medication_list.objects.all()
-    # if request.method == "POST":
-    #     #procedure is saved in Treatment model
-    #     procedure = request.POST['procedure']
-    #     #Date id saved in pre-appointment model
-    #     date = datetime.strptime(request.POST['date'], "%m/%d/%Y %H:%M")
-    #     #total_cost is saved in Treatment model
-    #     total_cost = int(request.POST["total_cost"])
-    #     #Paid is saved in Pre-app model
-    #     paid_amount = int(request.POST["paid_amount"])
-    #     #note is saved in all model except Patient model
-    #     notes = request.POST['notes']
-    #     #remaining_amount is saved in patient model
-    #     remaining_amount = int(total_cost - paid_amount)
-    #     patient.remaining_amount = remaining_amount
-    #     #Treatment model 
-    #     new_treatment = Treatment(p_name=patient, treatments=procedure, total_cost=total_cost, notes=notes)
-    #     if new_treatment is not None:
-    #         new_treatment.save()
-    #         patient.save()
-    #         #saving pre-appointment
-    #         pre_appointment = Previous_appointment(patient_name=patient, treatment=new_treatment, date=date, notes=notes, paid_amount=paid_amount)
-    #         if pre_appointment is not None:
-    #             pre_appointment.save()
-
-    #             return HttpResponseRedirect(reverse('patient', args=(patient_id,)))
-    #     else:
-    #         return HttpResponse('this treatment cannot be saved!') 
-
 @login_required
 def upcoming_appointments(request):
     upcoming_appointments = Next_appointment.objects.all().order_by('date')
-    
-    
     #medlist = Medication_list.objects.all()
     if upcoming_appointments.exists():
         return render(request, "dentist/upcoming_appointments.html",{
@@ -224,7 +199,7 @@ def update_schedule(request):
         print(id)
         name = data['name']
         treatment = data['treatment']
-        date= data['date']
+        date= datetime.strptime(data['date'], "%m/%d/%Y %H:%M")
         notes = data['notes']
         paid_amount = data['paid_amount']
         
@@ -234,8 +209,10 @@ def update_schedule(request):
         omitted_record = Next_appointment.objects.get(pk = id)
         patient_id = omitted_record.patient_name.id 
         patient = Patients.objects.get(pk=patient_id)
+        treatment_id = omitted_record.treatment.id
+        treatment_name = Treatment.objects.get(pk=treatment_id)
         # archive this appointment
-        new_appointment = Next_appointment(patient_name=patient, treatment=treatment, date= date, notes=notes)
+        new_appointment = Next_appointment(patient_name=patient, treatment=treatment_name, date= date, notes=notes)
         new_appointment.save()
         # Archive the current appointment and save it 
         archived_appointment = Previous_appointment(patient_name= omitted_record.patient_name, treatment=omitted_record.treatment, date= omitted_record.date, 
@@ -248,7 +225,7 @@ def update_schedule(request):
         print(f"id={patient_id}")
         # print(omitted_record)
         print(paid_amount)
-        # omitted_record.delete()
+        omitted_record.delete()
         #archive this particular recodrd. Save it in the previous appointment
         
 
@@ -261,31 +238,23 @@ def archived(request):
     if request.method == "POST":
         data= json.loads(request.body)
         id = data['id']
-        paid_amount = data['paid_amount']
-        #select this record so that it will be archived to the previous appointment
+        treatment_type = data['treatment_type']
         record = Next_appointment.objects.get(pk=id)
-        #Archive this appointment
-        # get the patient from DB
+        # Get the patient information 
         patient_id = record.patient_name.id
         patient = Patients.objects.get(pk=patient_id)
-        patient.remaining_amount -= int(paid_amount)
+        # Get the treatment information
+        treatment_id = record.treatment.id
+        treatment = Treatment.objects.get(pk=treatment_id)
+        # check the price of a particular treatment
+        med_type = Medication_list.objects.get(treatment_title=treatment_type)
+        print(med_type)
+        patient.remaining_amount -= med_type.total_cost
         patient.save()
-        print(patient.remaining_amount)
-       
-        #  get the debit amount  and subtract paid_amount from the remaining amount
-        # patient.remaining_amount  -= int(paid_amount)
-        # patient.save()
-        
-        # print(debit_amount)
-        archived_record = Previous_appointment(patient_name=record.patient_name, treatment = record.treatment, date= record.date, notes= record.notes, paid_amount = paid_amount )
-        archived_record.save()
+        # archive this record
+        archive_appointment = Previous_appointment(patient_name=record.patient_name, treatment=record.treatment, date=record.date, notes=record.notes, paid_amount= med_type.total_cost)
+        archive_appointment.save()
         record.delete()
-        # print(record.treatment.total_cost)
-        
-        # record.save() 
-        # print(record.treatment.total_cost)
-
-        print(id)
 
     
         return JsonResponse({"message": "successful"})
