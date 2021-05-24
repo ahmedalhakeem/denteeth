@@ -5,7 +5,10 @@
 {% endblock %}
 {% block content %}
 
-
+<form action="{% url 'search' %}" method="GET">
+    <input type="text" class="search" name="search" placeholder="search Patients">
+    <input type="submit" class="btn btn-primary">
+</form>
 <div class="list-patients">
     <h1>قائمة المراجعين</h1>
     {% for patient in patients %}

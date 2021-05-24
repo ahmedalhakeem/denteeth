@@ -13,5 +13,7 @@ urlpatterns = [
     path("change_appointment/<int:a_id>", views.change_appointment, name="change_appointment"),
     path("modal", views.modal, name="modal"),
     path("update_schedule", views.update_schedule, name="update_schedule"),
-    path("archived", views.archived, name="archived")
+    path("archived", views.archived, name="archived"),
+    path("search", views.search, name="search")
+    
 ]

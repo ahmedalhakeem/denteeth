@@ -1,4 +1,6 @@
 import json
+import re
+from django.db.models import query
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -259,6 +261,23 @@ def archived(request):
     
         return JsonResponse({"message": "successful"})
     return JsonResponse({"msg": "Failed"})
+
+#  Search function 
+def search(request):
+    if request.method == "GET": 
+        patient_name = request.GET.get('search')
+        try:
+            status = Patients.objects.filter(name__icontains= patient_name)
+                         
+        except Patients.DoesNotExist:
+            status =None
+        return render(request, 'dentist/search.html',{
+            "patient_name": status
+        })
+    else:
+        return HttpResponse("no results")
+
+
 def modal(request):
     return render(request, "dentist/modal.html")
 
