@@ -119,16 +119,8 @@ img.avatar{
     margin: auto;
     text-align: center;
 }
-.row{
-    border: 1px solid black;
-}
-.col-75{
-    border: 2px solid red;
-}
-.col-25{
-    border: 2px solid red;
-    
-}
+
+
 .inputForm{
     width: 100%;
     padding: 12px;
@@ -149,6 +141,27 @@ input[type=submit]{
     cursor: pointer;
     float: right;
 }
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
  
 /* CSS styling for List of Patients*/
 .list-patients{
