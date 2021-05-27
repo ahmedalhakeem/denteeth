@@ -126,7 +126,7 @@ img.avatar{
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical
+    resize: vertical;
 }
 .labelForm {
   padding: 12px 12px 12px 0;
@@ -145,6 +145,7 @@ input[type=submit]{
     float: left;
     width: 25%;
     margin-top: 6px;
+    
   }
   
   .col-75 {
@@ -156,13 +157,17 @@ input[type=submit]{
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    border: 2px solid black;
+    margin-top: 30px;
   }
+ 
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
- 
+
+  
 /* CSS styling for List of Patients*/
 .list-patients{
     position: absolute;
@@ -192,13 +197,11 @@ input[type=submit]{
     width: 80%;
 }
 /* CSS styling for patient profile*/
-.container {
-    border: 2px solid black;
 }
-.col{
+/* .col{
     border: 1px solid #4caf50;
     text-align: center;
-}
+} */
 
 /*Next appointment table*/
 .styled-table{

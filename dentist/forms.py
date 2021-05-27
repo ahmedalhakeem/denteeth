@@ -17,15 +17,15 @@ class Add_Patient_form(forms.Form):
         (male, "m"),
         (female, "f")
     ]
-    name = forms.CharField(label="name", required=True, widget=forms.TextInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's name"}))
-    age = forms.CharField(label="age", required=False, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's age"}))
-    gender = forms.ChoiceField(label="gender",choices=gender_type, widget=forms.Select(attrs={"class": "inputForm",}))
-    contact = forms.CharField(label="contact", required=True, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's contact number"}))
+    name = forms.CharField(label="الاسم", required=True, widget=forms.TextInput(attrs={"class": "inputForm", "placeholder": "ادخل اسم المريض..."}))
+    age = forms.CharField(label="العمر", required=False, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "ادخل عمر المريض..."}))
+    gender = forms.ChoiceField(label="الجنس",choices=gender_type, widget=forms.Select(attrs={"class": "inputForm",}))
+    contact = forms.CharField(label="رقم الموبايل", required=True, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "ادخل رقم الموبايل..."}))
 
 class Appointment(forms.Form):
     #class Meta:
         #model = Next_appointment
         #fields = ['patient_name', 'treatment', 'date', 'notes']
-    patient_name = forms.ModelChoiceField(required=True,label="patient_name", queryset=Patients.objects.all())
-    treatment_type = forms.ModelChoiceField(required=True,label="treatment_type", queryset=Medication_list.objects.all())
+    patient_name = forms.ModelChoiceField(required=True,label="اختر المريض",widget=forms.Select(attrs={"class": "form-control"}), queryset=Patients.objects.all())
+    treatment_type = forms.ModelChoiceField(required=True,label="اختر نوع العلاج", widget=forms.Select(attrs={"class": "inputForm"}) ,queryset=Medication_list.objects.all())
     

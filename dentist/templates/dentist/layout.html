@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
 
     <!-- Required meta tags -->
@@ -38,11 +38,12 @@
       <img src="{% static 'dentist/images/dentist_logo.png' %}" alt="logo" class="logo" style="width: 100px; height: 100px;">
       <nav>
         <ul class="nav__links">
+          <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
           <li><a href="{% url 'add_patient' %}">اضافة مراجع</a></li>
           <li><a href="{% url 'upcoming_appointments' %}">المواعيد القادمة</a></li>
           <li><a href="{% url 'appointment' %}">حجز موعد</a></li>
           <li><a href="{% url 'all_patients'%}">المراجعين</a></li>
-          <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+          
           
 
         </ul>

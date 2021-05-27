@@ -10,15 +10,14 @@ Next_appointments
     {% endif %}
 
     <div class="wrapp">
-            <div class="titles">
-                <div id="pat-name">patient_name</div>
-                <div id="treat">treatment</div>
-                <div id="appointment">appointment</div>
-                <div id="note">notes</div>
-                <!-- <div id="t-cost">Total-cost</div> -->
-                <div> Edit or Remove</div>
-            
-            </div>
+        <div class="titles">
+            <div id="pat-name">اسم المريض</div>
+            <div id="treat">نوع العلاج</div>
+            <div id="appointment">الموعد</div>
+            <div id="note">الملاحظات</div>
+            <div> تعديل الموعد </div>
+        
+        </div>
         
         {% for item in upcoming_appointments %}
             <div class="appointment-list">
@@ -28,9 +27,9 @@ Next_appointments
                 <div class="notes">{{item.notes}}</div>
                 <!-- <div class="cost">{{item.treatment.total_cost}}</div> -->
                 <div class="edit">
-                    <button id="{{item.id}}" class="edit">edit</button>  
+                    <button id="{{item.id}}" class="edit">تغيير الموعد</button>  
                     <!--<button class="remove">remove</button>-->
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="archive">Reschedule</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="archive">انهاء الموعد</button>
 
                     
                     

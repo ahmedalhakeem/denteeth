@@ -8,14 +8,43 @@ Book a new appointment
     {% if message %}
         <h1>{{message}}</h1>
     {% endif %}
-    <form action="{% url 'appointment' %}" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        Appointment: <input type="text" name="appointment" id="datepicker" required>
-        <!-- total cost: <input type="number" name="total_amount" id="total_amount" required> -->
+    <div class="container">
+        <form action="{% url 'appointment' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="row">
+                    <div class="col-25">
+                    <label for="{{field.auto_id}}" class="labelForm">{{field.label}}</label>
+                    </div>
+                    <div class="col-75">
+                        {{field}}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-25">
+                    <label for="appointment" class="labelForm">Appointment</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" class="inputForm" name="appointment" id="datepicker" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="notes" class="labelForm">Notes</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" class="inputForm" name="notes" id="datepicker" required>
+                </div>
+            </div>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+        <!-- {{ form }} -->
+        <!-- total cost: <input type="number" name="total_amount" id="total_amount" required> 
         notes : <input type="text" name="notes" id="notes" required>
-        <input type="submit" value="submit">
-    </form>
+        <input type="submit" value="submit">-->
+    
 {% endblock %}
 {% block script %}
     <script src="{% static 'dentist/index.js'%}"></script>
