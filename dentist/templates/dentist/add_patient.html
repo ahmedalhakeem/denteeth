@@ -4,18 +4,29 @@
 Add_patient Page
 {% endblock %}
 {% block content%}
+
+
     <div class="hea">
         <h1>ادخال معلومات المراجع</h1>
     </div>
-    
-    <form action="{% url 'add_patient' %}" method="POST">
-        {% csrf_token %}
-        <div class="container">
-            {{ patient_form }}
-            <input type="submit">
-        </div>
-       
-    </form>
+    <div class="container">
+        <form action="{% url 'add_patient' %}" method="POST">
+            {% csrf_token %}
+            {% for field in patient_form %}
+            <div class="row">
+                
+                <div class="col-25">
+                    <label for="{{field.auto_id}}" class="labelForm">{{field.label}}</label>
+                </div>
+                <div class="col-75">
+                    {{field}}
+                </div>
+            </div> 
+            {% endfor %}
+                <input type="submit">
+        </form>
+    </div>
+   
     {% if message %}
         <h1>{{ message }}</h1>
         <h1><a href="{% url 'add_patient'%}">رجوع </a></h1>

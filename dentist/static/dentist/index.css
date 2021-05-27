@@ -1,30 +1,54 @@
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #24252a; 
+    /* background-color: #24252a; */
 }
-header li, a, button { 
+li, a, button{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 25px;
     color: #edf0f1;
     text-decoration: none;
 }
-
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
 }
+.logo {
+    cursor: pointer;
+}
+.nav__links{
+    list-style: none;
+}
+.nav__links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover {
+    color: #0088a9;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
 
-.nav-link{
-    font-size: 30px;
-    margin: 0 5px;
 }
 
-form{
+
+
+/* form{
     border: 3px solid #f1f1f1;
 }
 input[type=text], input[type=password]{
@@ -46,7 +70,7 @@ input[type=submit]{
 }
 input[type=submit]:hover{
     opacity: 0.8;
-}
+} 
 .imagcontainer{
     text-align: center;
     margin: 24px 0 12px 0;
@@ -56,13 +80,18 @@ img.avatar{
     border-radius: 50%;
 }
 #apptitle{
+    background-color: #4287f5;
+    width: 100%;
+    height: 80px;
+}
+#apptitle {
     text-decoration: overline;
     text-align: center;
     font-size:80px;
     color: white;
-}
+}*/
 /* CSS styling of the main page*/
-.wrapper{
+.wrapper {
     display: flex;
     position: absolute;
     top: 50%;
@@ -72,7 +101,7 @@ img.avatar{
     margin: auto;
     left: 50%;
 }
-.add {
+.add, .search, .all-patients {
     border: 3px solid #f1f1f1;
     width:30%;
     padding: 20px;
@@ -80,31 +109,45 @@ img.avatar{
     margin: 10px 20px;
     
 }
-.search{ 
-    border: 3px solid #f1f1f1;
-    width: 30%;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 20px;
 
-}
-.all-patients{
-    border: 3px solid #f1f1f1;
-    width: 30%;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 20px;
-
-}
 /* CSS Styling of add_patient*/
 .hea{
     
-    border: 2px solid #f1f1f1;
-    
-    transform: translate(0, -10px);
+    border: 2px solid #f1f1f1;    
+    /* transform: translate(0, -10px); */
     width: 50%;
     margin: auto;
     text-align: center;
+}
+.row{
+    border: 1px solid black;
+}
+.col-75{
+    border: 2px solid red;
+}
+.col-25{
+    border: 2px solid red;
+    
+}
+.inputForm{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical
+}
+.labelForm {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit]{
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
 }
  
 /* CSS styling for List of Patients*/

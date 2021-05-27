@@ -17,10 +17,10 @@ class Add_Patient_form(forms.Form):
         (male, "m"),
         (female, "f")
     ]
-    name = forms.CharField(label="Full Name", required=True, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter Patient's name"}))
-    age = forms.CharField(label="Age", required=False, widget=forms.NumberInput(attrs={"class": "form-control", "placeholder": "Enter Patient's age"}))
-    gender = forms.ChoiceField(label="Gender",choices=gender_type, widget=forms.Select(attrs={"class": "form-control",}))
-    contact = forms.CharField(label="Contact number", required=True, widget=forms.NumberInput(attrs={"class": "form-control", "placeholder": "Enter Patient's contact number"}))
+    name = forms.CharField(label="name", required=True, widget=forms.TextInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's name"}))
+    age = forms.CharField(label="age", required=False, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's age"}))
+    gender = forms.ChoiceField(label="gender",choices=gender_type, widget=forms.Select(attrs={"class": "inputForm",}))
+    contact = forms.CharField(label="contact", required=True, widget=forms.NumberInput(attrs={"class": "inputForm", "placeholder": "Enter Patient's contact number"}))
 
 class Appointment(forms.Form):
     #class Meta:
