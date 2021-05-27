@@ -9,12 +9,23 @@
     <input type="text" class="search" name="search" placeholder="search Patients">
     <input type="submit" class="btn btn-primary">
 </form>
-<div class="list-patients">
+
+<div class="patients_wrapper">
+    <h1>List of All Patients</h1>
+    <div class="list-group">
+        {% for patient in patients %}
+            <a href="{% url 'patient' patient.id %}" class="list-group-item list-group-item-action">{{ patient.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+    
+
+<!-- <div class="list-patients">
     <h1>قائمة المراجعين</h1>
     {% for patient in patients %}
         <div class="patient-name">
             <h1><a href="{% url 'patient' patient.id %}">{{ patient.name }}</a></h1>
         </div>
     {% endfor %}
-</div>
+</div> -->
 {% endblock%}
