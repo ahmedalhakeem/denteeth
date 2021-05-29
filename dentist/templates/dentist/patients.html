@@ -11,11 +11,15 @@
 </form>
 
 <div class="patients_wrapper">
-    <h1>List of All Patients</h1>
-    <div class="list-group">
-        {% for patient in patients %}
-            <a href="{% url 'patient' patient.id %}" class="list-group-item list-group-item-action">{{ patient.name }}</a>
-        {% endfor %}
+    <div class="list_of_names">
+        <h1>اسماء المراجعين</h1>
+    </div>
+    <div class="names">
+        <ul class="patients__list">
+            {% for patient in patients %}
+                <li><a href="{% url 'patient' patient.id %}">{{patient.name}}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
     

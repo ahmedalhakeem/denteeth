@@ -169,21 +169,57 @@ input[type=submit]{
 
   
 /* CSS styling for List of Patients*/
-.list-patients{
-    position: absolute;
-    top: 80%;
-    transform: translate(-50%, -50%);
-    /*border: 3px solid #ccc;*/
-    width: 40%;
+.patients_wrapper{
+    border: 1px solid #0088a9;
+    width: 30%;
     margin: auto;
-    left: 50%;
+    border-radius: 15px;
+    padding: 2px 2px;
+
+    /* display: inline-block; */
+    
+
+}
+.list_of_names{
+    background-color: #0088a9;
+    width: 100%;
     text-align: center;
-    /*justify-content: center;*/
+    border-radius: 15px;
+    /* margin: 20px 30px; */
+    /* color: #fff; */
 }
-.list-patients >h1{
-    font-size: 90px;
-    color: #4caf50;
+.list_of_names h1 {
+    color: #ccc;
+    text-shadow: 2px 2px #000;
+    
 }
+.names{
+
+    /* margin: 20px 30px; */
+    background-color: #7dbeeb; 
+    width: 100%;
+    border-radius: 15px;
+}
+.patients__list{
+    /* text-align: center; */
+    width: 70%;
+    margin: auto;
+    border: 1px solid red;
+    list-style: none;
+    /* border: 1px solid green; */
+    text-align: center;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.patients__list li{
+    width: 100%;
+    display: inline-block;
+    
+    border: 1px solid black;
+    list-style: none;
+    margin: 1px;
+}
+
 .patient-name{
     border: 2px dotted #4caf50;
     margin: 10px auto;
