@@ -23,22 +23,22 @@ Patient's Profile
     </div>
     <!-- Create Add appointment form-->   
     <div class="treat_container">
-        <h1 style="text-align: center;">List of Treatments</h1>
+        <h1 style="text-align: center;">المواعيد السابقة</h1>
         <table class="table table-bordered">
             <thead class="table-primary">
                 <tr>
-                    <th>Procudure</th>
-                    <th>Appointment</th>
-                    <th>Total Cost</th>
-                    <th>Notes</th>
+                    <th>المعالجة</th>
+                    <th>الموعد</th>
+                    <th>الكلفة</th>
+                    <th>الملاحظات</th>
                 </tr>
             </thead>
-                {% for treatment in treatments %}
+                {% for appointment in old_appointments %}
                 <tr class="table-success">
-                    <td>{{treatment.treatment_procedure}}</td>
-                    <td>{{treatment.date_created}}</td>
-                    <td>{{treatment.total_cost}}</td>
-                    <td>{{treatment.notes}}</td>
+                    <td>{{appointment.treatment.treatments}}</td>
+                    <td>{{appointment.date}}</td>
+                    <td>{{appointment.paid_amount}}</td>
+                    <td>{{appointment.notes}}</td>
                 </tr>
                 {% endfor %}
                 

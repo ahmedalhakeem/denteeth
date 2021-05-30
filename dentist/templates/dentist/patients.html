@@ -4,11 +4,13 @@
 قائمة المراجعين
 {% endblock %}
 {% block content %}
-
-<form action="{% url 'search' %}" method="GET">
-    <input type="text" class="search" name="search" placeholder="search Patients">
-    <input type="submit" class="btn btn-primary">
-</form>
+<div class="search__wrapper">
+    <form action="{% url 'search' %}" method="GET">
+        <input type="text" class="search__box"  name="search" placeholder="أبحث عن اسم المراجع...">
+        <input type="submit" class="btn btn-primary" value="بحث">
+    </form>
+    
+</div>
 
 <div class="patients_wrapper">
     <div class="list_of_names">
@@ -24,12 +26,5 @@
 </div>
     
 
-<!-- <div class="list-patients">
-    <h1>قائمة المراجعين</h1>
-    {% for patient in patients %}
-        <div class="patient-name">
-            <h1><a href="{% url 'patient' patient.id %}">{{ patient.name }}</a></h1>
-        </div>
-    {% endfor %}
-</div> -->
+
 {% endblock%}

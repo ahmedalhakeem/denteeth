@@ -46,6 +46,7 @@ def main(request):
 
     return render(request, 'dentist/main.html')
 #create add_patient function
+@login_required()
 def add_patient(request):
     if request.method == "POST":
         # takes patient information from django forms
@@ -81,6 +82,7 @@ def add_patient(request):
             "patient_form" : patient_form
         })
 # Display all patient names
+@login_required()
 def all_patients(request):
     patients = Patients.objects.all()
     return render(request, 'dentist/patients.html',{
@@ -88,15 +90,17 @@ def all_patients(request):
     })
 
 #show patient profile page
+@login_required()
 def patient(request, patient_id):
     patient = Patients.objects.get(pk=patient_id)
-    #list all treatments for a particular patient
-    # treatments = Treatment.objects.filter(p_name=patient) //remove
+    old_appointments = Previous_appointment.objects.filter(patient_name=patient).order_by('-date')
     return render(request, 'dentist/patient.html',{
-        "patient": patient
+        "patient": patient,
+        "old_appointments": old_appointments
     })
 
 # make a new  appointment
+@login_required()
 def appointment(request):
     if request.method == "POST":
 

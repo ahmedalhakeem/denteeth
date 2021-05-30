@@ -132,7 +132,7 @@ img.avatar{
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-input[type=submit]{
+/* input[type=submit]{
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -140,7 +140,7 @@ input[type=submit]{
     border-radius: 4px;
     cursor: pointer;
     float: right;
-}
+} */
 .col-25 {
     float: left;
     width: 25%;
@@ -170,54 +170,82 @@ input[type=submit]{
   
 /* CSS styling for List of Patients*/
 .patients_wrapper{
-    border: 1px solid #0088a9;
-    width: 30%;
+    width: 40%;
     margin: auto;
-    border-radius: 15px;
-    padding: 2px 2px;
-
-    /* display: inline-block; */
+    border-radius: 10px;
+    padding: 0px;
+    margin-top: 40px;
     
 
 }
 .list_of_names{
-    background-color: #0088a9;
     width: 100%;
     text-align: center;
-    border-radius: 15px;
-    /* margin: 20px 30px; */
-    /* color: #fff; */
+    border-radius: 10px;
 }
 .list_of_names h1 {
     color: #ccc;
+    border-radius: 10px;
+    margin: auto;
+    width: 50%;
+    background-color: #0088a9 ;
     text-shadow: 2px 2px #000;
     
 }
 .names{
-
-    /* margin: 20px 30px; */
-    background-color: #7dbeeb; 
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .patients__list{
-    /* text-align: center; */
-    width: 70%;
-    margin: auto;
-    border: 1px solid red;
-    list-style: none;
-    /* border: 1px solid green; */
-    text-align: center;
-    /* align-items: center; */
-    /* justify-content: center; */
-}
-.patients__list li{
     width: 100%;
-    display: inline-block;
-    
-    border: 1px solid black;
+    margin: auto;
     list-style: none;
-    margin: 1px;
+    text-align: center;
+}
+.names li{
+    width: 100%;
+    margin: 5px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+    list-style: none;
+    
+}
+.names li a{
+    font-size: 30px;
+}
+.names li:hover{
+    background-color:burlywood;
+}
+.search__wrapper{
+    /* border: 1px solid black; */
+    /* margin-right: 20px; */
+    /* padding: 5px; */
+    margin: auto;
+    /* transform: translate(-50%, -50%); */
+    width: 30%;
+
+}
+.search__box{
+    display: inline-block;
+    width: 70%;
+    height: 70px;
+    padding: 10px;
+    margin-bottom: 5px;
+    /* margin: 5px; */
+}
+.search__wrapper  input[type=submit]{
+    background-color:rgba(0, 136, 169, 1);
+    width: 20%;
+    height: auto;
+    font-size: 20px;
+    float: right;
+    margin: 10px;
+}
+@media screen and (max-width:900px) {
+    .search__wrapper{
+        display: none;
+    }
 }
 
 .patient-name{
