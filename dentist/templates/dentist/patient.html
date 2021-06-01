@@ -4,20 +4,20 @@
 Patient's Profile
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <h1 style="text-align: center;">معلومات المريض</h1>
-        <div class="row">
-            <div class="col"><h1>الجنس</h1> </div>
-            <div class="col"><h1>العمر</h1> </div>
-            <div class="col"><h1>رقم الهاتف</h1></div>
+    <div class="wrap__info">
+        <h1 style="text-align: center;">معلومات المراجع</h1>
+        <div class="row title_info">
             <div class="col"><h1>الاسم</h1> </div>
+            <div class="col"><h1>العمر</h1> </div>
+            <div class="col"><h1>الجنس</h1></div>
+            <div class="col"><h1>رقم الموبايل</h1> </div>
             <div class="col"><h1>المبلغ المتبقي</h1></div>
         </div>
-        <div class="row">
-            <div class="col">{{patient.gender}}</div>
-            <div class="col">{{patient.age}}</div>
-            <div class="col">{{patient.contact_number}}</div>
+        <div class="row information">
             <div class="col">{{patient.name}}</div>
+            <div class="col">{{patient.age}}</div>
+            <div class="col">{{patient.gender}}</div>
+            <div class="col">{{patient.contact_number}}</div>
             <div class="col">{{patient.remaining_amount}}</div>
         </div>
     </div>

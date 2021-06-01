@@ -263,10 +263,18 @@ button:hover{
     border-bottom: 2px solid #009879;
 }
 /*next-appointment page ***/
+.wrapp{
+    width: 80%;
+    margin: auto;
+}
 .appointment-list{
     display: grid;
+    /* width: 100%; */
+    /* height: 50px; */
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    padding: 1em;
+    /* column-gap: 2px; */
+    /* row-gap: 30px; */
+    /* padding: 1em; */
    
 }
 .appointment-list > div{
@@ -301,4 +309,28 @@ button:hover{
 }
 .cost::after{
     content: " IQD";
+}
+/* Patient_profile */
+.title_info{
+    /* background-color: #009879; */
+    color: #000;
+}
+.title_info>div{
+    background-color: #82cebf;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0px 2px 0px 2px;
+}
+.information>div{
+    border-radius: 10px;
+    margin: 4px 2px 0px 2px;
+    border: 1px solid black;
+    font-size: 30px;
+    text-align: center;
+}
+.wrap__info{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
 }
