@@ -15,9 +15,9 @@ Next_appointments
             <div id="treat">نوع العلاج</div>
             <div id="appointment">الموعد</div>
             <div id="note">الملاحظات</div>
-            <div> تعديل الموعد </div>
+            <div id="modify__appointment"> تعديل الموعد </div>
         
-        </div>
+    </div>
         
         {% for item in upcoming_appointments %}
             <div class="appointment-list">
@@ -25,14 +25,9 @@ Next_appointments
                 <div class="treatment">{{item.treatment}}</div>
                 <div class="appointment">{{item.date}}</div>
                 <div class="notes">{{item.notes}}</div>
-                <!-- <div class="cost">{{item.treatment.total_cost}}</div> -->
-                <div class="edit">
-                    <button id="{{item.id}}" class="edit">تغيير الموعد</button>  
-                    <!--<button class="remove">remove</button>-->
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" id="archive">انهاء الموعد</button>
-
-                    
-                    
+                <div class="edit__wrapp">
+                    <button id="{{item.id}}" class="edit">تغيير الموعد</button>
+                    <button data-bs-toggle="modal" data-bs-target="#myModal" id="archive">انهاء الموعد</button>                  
                 </div>
                 
             </div>

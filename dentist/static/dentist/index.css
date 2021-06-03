@@ -4,10 +4,6 @@
     padding: 0; */
     /* background-color: #24252a; */
 /* } */
-body{
-    background: dodgerblue;
-    border: 1px solid black;
-}
 
 li, a, button{
     font-family: Arial, Helvetica, sans-serif;
@@ -31,12 +27,20 @@ header{
 .nav__links li{
     display: inline-block;
     padding: 0 20px;
+    background-color: #0088a9;
+    /* color: #ccc; */
+    border-radius: 15px;
+    margin: 10px;
+}
+.nav__links li:hover{
+    background-color: #1d2a40;
 }
 .nav__links li a {
     transition: all 0.3s ease 0s;
+    color: #ccc;
 }
 .nav__links li a:hover {
-    color: #0088a9;
+    /* color: #000000; */
 }
 button{
     padding: 9px 25px;
@@ -241,80 +245,81 @@ button:hover{
 }
 
 /*Next appointment table*/
-.styled-table{
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    width: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-.styled-table thead tr{
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-}
-.styled-table th,
-.styled-table td{
-    padding: 12px;  
-}
-.styled-table tbody tr{
-    border-bottom: 1px solid #dddddd;
-}
-.styled-table tbody tr:nth-of-type(even){
-    background-color: #f3f3f3;
-}
-.styled-table tbody tr:last-of-type{
-    border-bottom: 2px solid #009879;
-}
-/*next-appointment page ***/
 .wrapp{
     width: 80%;
     margin: auto;
 }
 .appointment-list{
     display: grid;
-    /* width: 100%; */
-    /* height: 50px; */
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    /* column-gap: 2px; */
-    /* row-gap: 30px; */
-    /* padding: 1em; */
-   
+    width: 100%;
+    /* height: 100px; */
+    /* padding: 10px; */
+    grid-template-columns: repeat(5, 1fr);
+
 }
 .appointment-list > div{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    border: 1px solid black;
+    font-size: 18px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     text-align: center;
-    background: chartreuse;
+    /* padding-top: 15px; */
+    background: rgb(130, 131, 129);
+    margin: 5px 2px 5px 2px;
+    /* margin: 2px; */
 }
-.appointment-list > div:nth-child(odd){
+/* .appointment-list > div:nth-child(odd){
     color: rebeccapurple;
-}
+} */
 .titles{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
-    padding: 1em;
+    grid-template-columns:repeat(5, 1fr);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    /* padding: 1em; */
+  
+    /* grid-gap: 10px; */
+    /* width: 100%; */
 
 }
 .titles >div{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     text-align: center;
-    background:brown;
-    color: burlywood;
+    background:#c9c5b1;
+    color: white;
+    
+    margin: 2px;
+    
 }
 
-.edit {
+.edit__wrapp {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
 
 }
-.cost::after{
-    content: " IQD";
+.edit__wrapp button{
+    background: none;
+    margin: 0 1px 0 1px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: blue;
+
+    
 }
+.edit{
+    background: none;
+}
+#archive{
+    background: none;
+}
+
 /* Patient_profile */
 .title_info{
     /* background-color: #009879; */
