@@ -1,7 +1,9 @@
 /* *{
     box-sizing: border-box;
     margin: 0;
-    padding: 0; */
+    padding: 0;
+
+} */
     /* background-color: #24252a; */
 /* } */
 
@@ -16,31 +18,48 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    /* padding: 30px 10%; */
+    /* position: sticky;
+    position: -webkit-sticky; */
+    /* top: 0; */
+    /* z-index: 1; */
+    background:burlywood;
+    height: 110px;
 }
 .logo {
     cursor: pointer;
 }
+
 .nav__links{
     list-style: none;
+    height: 100%;
+    border: 1px solid black;
+    
+    /* position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%; */
 }
 .nav__links li{
     display: inline-block;
     padding: 0 20px;
-    background-color: #0088a9;
+    /* background-color: #0088a9; */
     /* color: #ccc; */
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 10px;
+    height: 100%;
+    /* border: 1px solid black; */
+    
 }
 .nav__links li:hover{
-    background-color: #1d2a40;
+    /* background-color: #1d2a40; */
 }
 .nav__links li a {
     transition: all 0.3s ease 0s;
-    color: #ccc;
+    color:black;
 }
 .nav__links li a:hover {
-    /* color: #000000; */
+    color: white;
 }
 button{
     padding: 9px 25px;
@@ -88,6 +107,7 @@ button:hover{
     width: 50%;
     height: 50px;
     margin: auto;
+    margin-top: 50px;
     color: white;
     text-align: center;
 }
@@ -194,6 +214,7 @@ button:hover{
 .search__wrapper{
     margin: auto;
     width: 30%;
+    margin-top: 50px;
 
 }
 .search__box{
@@ -309,16 +330,13 @@ button:hover{
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background-color: blue;
+    /* margin: 0px 2px 0px 2px; */
+    /* background-color: blue; */
 
     
 }
-.edit{
-    background: none;
-}
-#archive{
-    background: none;
-}
+
+
 
 /* Patient_profile */
 .title_info{
