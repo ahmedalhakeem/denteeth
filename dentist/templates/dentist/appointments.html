@@ -10,36 +10,30 @@ Book a new appointment
     {% if message %}
         <h1>{{message}}</h1>
     {% endif %}
-    <div class="container">
+    <div class="containers">
         <form action="{% url 'appointment' %}" method="POST">
             {% csrf_token %}
             {% for field in form %}
-                <div class="row">
+                <div class="rows">
                     <div class="col-25">
-                    <label for="{{field.auto_id}}" class="labelForm">{{field.label}}</label>
-                    </div>
-                    <div class="col-75">
-                        {{field}}
-                    </div>
+                    <label for="{{field.auto_id}}" class="labelsForm">{{field.label}}</label>
+                    {{field}}
+                    </div>                    
                 </div>
             {% endfor %}
-            <div class="row">
+            <div class="rows">
                 <div class="col-25">
-                    <label for="appointment" class="labelForm">Appointment</label>
-                </div>
-                <div class="col-75">
+                    <label for="appointment" class="labelsForm">الموعد</label>
                     <input type="text" class="inputForm" name="appointment" id="datepicker" required>
                 </div>
             </div>
-            <div class="row">
+            <div class="rows">
                 <div class="col-25">
-                    <label for="notes" class="labelForm">Notes</label>
-                </div>
-                <div class="col-75">
+                    <label for="notes" class="labelsForm">ملاحظات</label>
                     <input type="text" class="inputForm" name="notes" id="datepicker" required>
                 </div>
             </div>
-            <input id="book__button" type="submit" value="حجز">
+            <input id="save__button" type="submit" value="حجز" style="float: right;">
         </form>
     </div>
         <!-- {{ form }} -->

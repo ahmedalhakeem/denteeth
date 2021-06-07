@@ -81,7 +81,7 @@ button:hover{
 .wrapper {
     display: flex;
     position: absolute;
-    top: 50%;
+    top: 90%;
     transform: translate(-50%, -50%);
     border: 3px solid #f1f1f1;
     width: 60%;
@@ -111,20 +111,48 @@ button:hover{
     color: white;
     text-align: center;
 }
-
-
-.inputForm{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+.containers{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid black;
 }
-.labelForm {
+.containers .rows{
+  width: 100%;
+  margin-top: 20px;
+
+  /* height: 100px; */
+  border: 1px solid red;
+  /* margin-right: 10px; */
+  /* float: left; */
+    
+}
+.col-25 {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 80%;
+    /* float: right; */
+    border: 1px solid black;
+    
+    /* margin-top: 6px; */
+    /* border: 1px solid black; */
+    
+  }
+.inputForm{
+    width: 70%;
+    padding: 12px;
+    /* border: 1px solid rgb(0, 0, 0); */
+    /* border-radius: 4px; */
+    resize: vertical;
+    float: right;
+}
+.labelsForm {
+  width: 100px;
+  /* border: 1px solid rgb(199, 6, 6); */
   padding: 12px 12px 12px 0;
-  display: inline-block;
   font-size: 20px;
   font-weight:bold;
+  float: right;
 }
 /* input[type=submit]{
     background-color: #04AA6D;
@@ -135,18 +163,7 @@ button:hover{
     cursor: pointer;
     float: right;
 } */
-.col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-    
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
+
   .container {
     border-radius: 5px;
     background-color: #f2f2f2;
