@@ -4,13 +4,26 @@
 Book a new appointment
 {% endblock %}
 {% block content %}
-    <div class="hea">
+    <!-- <div class="hea">
         <h1>حجز موعد جديد </h1>
-    </div>
+    </div> -->
     {% if message %}
         <h1>{{message}}</h1>
     {% endif %}
-    <div class="containers">
+
+    <div class="form-container">
+        <div class="title">حجز </div>
+        <div class="subtitle">موعد جديد</div>
+        <form action="{% url 'appointment' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-containers ic1">
+                <input  type="text" name="" id="name" class="inputs" placeholder="">
+            </div>
+
+        </form>
+    </div>
+
+    <!--<div class="containers">
         <form action="{% url 'appointment' %}" method="POST">
             {% csrf_token %}
             {% for field in form %}
