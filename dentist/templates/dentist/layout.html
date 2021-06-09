@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
     <link rel="stylesheet" href="{% static 'dentist/layout_style.css' %}">
-    <link rel="stylesheet" href="{% static 'dentist/index.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="{% static 'dentist/index.css' %}"> -->
     <link rel="stylesheet" href="{% static 'dentist/jqueryui/jquery-ui.css'%}">
     <link rel="stylesheet" href="{% static 'dentist/jqueryui/jquery-ui.structure.css'%}">
     <link rel="stylesheet" href="{% static 'dentist/jqueryui/jquery-ui.theme.css'%}">
@@ -25,23 +26,22 @@
     <title>{% block title%}{% endblock %}</title>
 
   </head>
-  <body style="background-color: #d5e2e3;">
+  <body>
 
     <!-- banner image -->
-    <div class="banner">
-      <img src="{% static 'dentist/images/webbanner.jpg' %}" alt="banner">
+    <div class="nav-container">
+      <ul>
+        <li class="active"><a href="{% url 'index'%}"><i class="fa fa-home"></i>الصفحة الرئيسية</a></li>
+        <li><a href="{% url 'add_patient' %}"><i class="fa fa-user-plus"></i> اضافة مراجع</a> </li>
+        <li><a href="{% url 'upcoming_appointments' %}"><i class="fa fa-calendar-check"></i>المواعيد القادمة</a> </li>
+        <li><a href="{% url 'appointment' %}"><i class="fa fa-calendar-plus"></i>حجز موعد</a>  </li>
+        <li><a href="{% url 'all_patients' %}"><i class="fa fa-users"></i>المراجعون</a> </li>
+      </ul>
+      
     </div>
-    <div class="navs" id="topnav">
-      <a href="{% url 'index' %}" class="active">الصفحة الرئيسية</a>
-      <a href="{% url 'add_patient' %}">اضافة مراجع</a>
-      <a href="{% url 'upcoming_appointments' %}">المواعيد القادمة</a>
-      <a href="{% url 'appointment' %}">حجز موعد</a>
-      <a href="{% url 'logout' %}" class="logout-btn">تسجيل خروج</a>
-      <a href="javascript:void(0);" class="icon" onclick="myfunction()"> <i class="fa fa-bars"></i></a>
+   
 
-    </div>
-    
-    <script>
+    <!-- <script>
       function myfunction(){
         var x = document.getElementById('topnav');
         if(x.className === "navs"){
@@ -50,12 +50,12 @@
           x.className = "navs";
         }
       }
-    </script>
+    </script> -->
     
   
   {% block content %}
     
-    {% endblock %}
+  {% endblock %}
     {% block script %}
     
     {% endblock %}
