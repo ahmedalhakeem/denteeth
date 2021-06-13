@@ -21,6 +21,9 @@ Patient's Profile
             <div class="col">{{patient.remaining_amount}}</div>
         </div>
     </div>
+    {% if message %}
+    {{message}}
+    {% endif %}
     <!-- Create Add appointment form-->   
     <div class="treat_container">
         <h1 style="text-align: center;">المواعيد السابقة</h1>
@@ -33,6 +36,12 @@ Patient's Profile
                     <th>الملاحظات</th>
                 </tr>
             </thead>
+            {% for appointment in next_appointments %}
+            <tr>
+                <td>{{appointment.treatment}}</td>
+                <td>{{appointment.date}}</td>    
+            </tr>
+            {% endfor %}
                 {% for appointment in old_appointments %}
                 <tr class="table-success">
                     <td>{{appointment.treatment.treatments}}</td>

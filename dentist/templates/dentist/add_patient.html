@@ -6,30 +6,9 @@ Add_patient Page
 {% block content%}
 
 
-    <!-- <div class="hea">
-        <h1>ادخال معلومات المراجع</h1>
-    </div>
-    <div class="form">
-        <div class="title">معلومات</div>
-        <div class="subtitle">ادخال معلومات المراجع</div>
-        <div class="input-container ic1">
-          <input id="firstname" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="firstname" class="placeholder">First name</label>
-        </div>
-        <div class="input-container ic2">
-          <input id="lastname" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="lastname" class="placeholder">Last name</label>
-        </div>
-        <div class="input-container ic2">
-          <input id="email" class="input" type="text" placeholder=" " />
-          <div class="cut cut-short"></div>
-          <label for="email" class="placeholder">Email</>
-        </div>
-        <button type="text" class="submit">submit</button>
-      </div> -->
+   
     <div class="containers">
+      <h2>استمارة ادخال مراجع جديد</h2>
         <form action="{% url 'add_patient' %}" method="POST">
             {% csrf_token %}
             {% for field in patient_form %}
@@ -40,7 +19,7 @@ Add_patient Page
                 </div>
             </div> 
             {% endfor %}
-                <input id="save__button" type="submit" value="حفظ" style="float: right;">
+                <input id="save__button" type="submit" value="حفظ" >
         </form>
     </div>
    

@@ -94,9 +94,17 @@ def all_patients(request):
 def patient(request, patient_id):
     patient = Patients.objects.get(pk=patient_id)
     old_appointments = Previous_appointment.objects.filter(patient_name=patient).order_by('-date')
-    return render(request, 'dentist/patient.html',{
-        "patient": patient,
-        "old_appointments": old_appointments
+    next_appointmens = Next_appointment.objects.filter(patient_name=patient)
+    if  not next_appointmens:
+        return render(request, 'dentist/patient.html',{
+            "message" : "لا توجد مراجعات قادمة",
+            "old_appointments": old_appointments
+        })
+    else:
+        return render(request, 'dentist/patient.html',{
+            "patient": patient,
+            "old_appointments": old_appointments,
+            "next_appointments": next_appointmens
     })
 
 # make a new  appointment

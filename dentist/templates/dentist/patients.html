@@ -16,12 +16,12 @@
     <div class="list_of_names">
         <h1 style="margin-bottom: 20px;">اسماء المراجعين</h1>
     </div>
-    <div class="names">
-        <ul class="patients__list">
-            {% for patient in patients %}
-                <li><a href="{% url 'patient' patient.id %}">{{patient.name}}</a></li>
-            {% endfor %}
-        </ul>
+    <div class="patients__list">
+        {% for patient in patients %}
+            <div class="patient_item">
+                <a href="{% url 'patient' patient.id %}"> {{patient.name}}</a>
+            </div>
+        {% endfor %}
     </div>
 </div>
     
