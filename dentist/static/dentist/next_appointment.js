@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
             const id = element.id;
             console.log(id);
             window.open(`/change_appointment/${id}`, "_blank", "top=100,left=200,height=400, width=900")   
-            element.innerHTML = 'save';
+            element.innerHTML = 'تعديل الموعد';
             const parent = element.parentElement;
             const grandparent = parent.parentElement;
             console.log(grandparent);

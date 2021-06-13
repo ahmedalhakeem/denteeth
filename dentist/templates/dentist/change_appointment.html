@@ -4,15 +4,21 @@
     modify_appointment
 {% endblock %}
 {% block content %}
+<div class="change__form">
+    <h3>التعديل الجديد</h3>
     <form action="{% url 'change_appointment' edit_app.id %}" method="POST">
         {% csrf_token %}
             </select>
-            <input type="text" name="date" id="datepicker">
-            <input type="text" name="notes" placeholder="change notes">
+            
+            <input type="text" name="date" id="datepicker" class="input__change" placeholder="ادخل التاريخ الجديد">
+            
+            <input type="text" name="notes" placeholder="اكتب الملاحظات الجديدة" class="input__change">
         
             <input type="submit" value="save" id="submit">
     </form>
 
+</div>
+    
 {% endblock %}
 {% block script %}
     <script src="{% static 'dentist/index.js'%}"></script>

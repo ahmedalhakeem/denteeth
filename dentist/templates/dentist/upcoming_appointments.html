@@ -27,7 +27,7 @@ Next_appointments
                 <div class="notes">{{item.notes}}</div>
                 <div class="edit__wrapp">
                     <button id="{{item.id}}" class="edit">تغيير الموعد</button>
-                    <button data-bs-toggle="modal" data-bs-target="#myModal" id="archive">انهاء الموعد</button>                  
+                    <button data-bs-toggle="modal" data-bs-target="#myModal" id="archive" class="change">انهاء الموعد</button>                  
                 </div>
                 
             </div>
@@ -39,53 +39,63 @@ Next_appointments
                 <div class="modal-content" id="new_appointment">
                     <div class="modal-header">
                         <div class="modal-title">
-                            <h5 class="modal-title">My PoPup window</h5>
+                            <h5 class="modal-title">حجز/ انهاء موعد</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                     </div>
-                        <div class="modal-body">
-                            <h1> if you have next_appointment, click resechedule</h1>
-                            <button type="button" class="btn btn-primary" id="modal-archive" data-bs-dismiss="modal"  onclick="archived()">archive</button>
-                            <button type="button" class="btn btn-primary" id="modal-resechedule" onclick="show_schedule_form()">resechedule</button>
-                        </div>
+                    <div class="modal-body">
+                        <div class="m_1">
+                            <p>يوجد موعد قادم؟, اضغط  </p> 
+                            <span>موعد قادم</span>
+                        </div>                           
+                        <div class="m_2">
+                            <p>لا يوجد موعد قادم , اضغط </p>
+                            <span>ارشيف</span>
+                        </div>    
+                        <div class="two_btns">
+                            <button type="button" class="btn btn-primary arch_btn" id="modal-archive" data-bs-dismiss="modal"  onclick="archived()">ارشيف</button>
+                            <button type="button" class="btn btn-primary next_btn" id="modal-resechedule" onclick="show_schedule_form()">الموعد القادم</button>                            
+                        </div> 
+
+                    </div>
 
                     
                 </div>
 
                 <div class="modal-content" id="resechedule-form">
                     <div class="modal-header">
-                        <h5 class="modal-title">My PoPup window</h5>
+                        <h5 class="modal-title">حجز الموعد القادم</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <form id="archive-form">
                             <div class="mb-3">
-                                <label class="form-label required">Name</label>
-                                <input type="text" id="patient_name" class="form-control">
+                                <label class="form-label ">الأسم</label>
+                                <input type="text" id="patient_name" class="form-control" disabled>
                             </div>
                             <div class="mb-3">
-                                <label class="form-labe required">treatment</label>
+                                <label class="form-label">نوع العلاج</label>
                                 <input type="text" id="treatment_type" class="form-control" disabled>
                             </div>
                             <div class="mb-3">
-                                <label class="form-labe required">Paid_amount</label>
-                                <input type="text" id="paid_amount" class="form-control">
+                                <label class="form-labe required">المبلغ المدفوع</label>
+                                <input type="text" id="paid_amount" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-labe required">date</label>
-                                <input type="text" class="form-control" id="datepicker">
+                                <label class="form-labe required">تاريخ الحجز القادم</label>
+                                <input type="text" class="form-control" id="datepicker" required>
                             </div>
                             
                             <div class="mb-3">
-                                <label class="form-label">type your message</label>
+                                <label class="form-label">الملاحظات</label>
                                 <textarea id="notes" class="form-control"></textarea>
                             </div>
                             
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" onclick="update_schedule()" data-bs-dismiss="modal">Submit</button>
-                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <div class="mf_2">
+                        <button type="submit" class="btn btn-primary book_btn" onclick="update_schedule()" data-bs-dismiss="modal">حجز</button>
+                        <button type="submit" class="btn btn-danger cancel_btn" data-bs-dismiss="modal">الغاء</button>
 
                     </div>
                 </div>

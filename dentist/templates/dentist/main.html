@@ -1,12 +1,28 @@
-{% extends 'dentist/layout.html'%}
+{% extends 'dentist/layout.html' %}
 {% load static %}
 {% block title %}
     Main Page
 {% endblock %}
 {% block content %}
+
+
      
-     
-     <div class="wrapper">
+<div class="banner">
+    <div class="main_title">
+      <h1>تطبيق</h1>
+    </div>
+      <div class="subtitle">
+        <h3>طبيب الاسنان</h3>
+      </div>
+      <div class="image">
+        <!-- <img src="{% static 'dentist/images/dental-logo.png'%}" alt=""> -->
+        <i class="fa fa-instagram" style="font-size: 200px;color: brown; "></i>
+        
+      </div>
+    
+  </div>
+
+     <!-- <div class="wrapper">
          <div class="add">
             <a href="{% url 'add_patient' %}">
                 <img src="{% static 'dentist/svg/person-plus-fill.svg' %}" style="width: 200px;"/>
@@ -31,6 +47,6 @@
             </a>
             <h1>المواعيد القادمة</h1>
         </div>
-     </div>
+     </div> -->
      
 {% endblock %}
