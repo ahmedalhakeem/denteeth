@@ -2,6 +2,7 @@ import json
 import re
 from django.db.models import query
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -85,8 +86,14 @@ def add_patient(request):
 @login_required()
 def all_patients(request):
     patients = Patients.objects.all()
+    # add pagination
+    paginator = Paginator(patients, 3)
+    page_number= request.GET.get('page')
+    pages = paginator.get_page(page_number)
+
     return render(request, 'dentist/patients.html',{
-        "patients": patients
+        "patients": patients,
+        "pages": pages
     })
 
 #show patient profile page

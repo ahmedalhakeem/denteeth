@@ -210,6 +210,16 @@ button:hover{
 .patients__list .patient_item a{
     color: #ccc;
 }
+.current{
+    font-size: 12px;
+    font-weight: 500;
+}
+.current #page_word{
+    color: rgb(55, 117, 61);
+}
+.current .num{
+    color: rgb(3, 22, 5);
+}
 
 .names li{
     width: 100%;
@@ -266,6 +276,33 @@ button:hover{
     text-decoration: none;
     width: 80%;
 }
+.page_links{
+    width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    display: block;
+
+    /* border: 1px solid black; */
+}
+.page_links a{
+    font-size: 12px;
+    margin: 3px 3px 1px 3px;
+}
+.page_links #first, .page_links #last_1{
+    color: rgb(114, 103, 103);
+    font-weight: 500;
+    font-size: 14px;
+}
+.page_links #pre_1, .page_links #next_1{
+    color: rgb(4, 56, 71);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+    
+
 
 /* appointment style */
 #book__button, #save__button{
