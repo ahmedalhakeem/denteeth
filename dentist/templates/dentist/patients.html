@@ -14,9 +14,11 @@
 
 <div class="patients_wrapper">
     <div class="list_of_names">
-        <h1 style="margin-bottom: 20px;">اسماء المراجعين</h1>
+        <h2>المراجعين</h2>
     </div>
-    <h4>Page Number: {{pages.number}}</h4>
+    <div class="page_no">
+        <h4>Page Number: {{pages.number}}</h4>
+    </div>
     <div class="patients__list">
         {% for patient in pages.object_list %}
             <div class="patient_item">

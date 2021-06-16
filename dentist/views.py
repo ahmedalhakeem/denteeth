@@ -104,6 +104,7 @@ def patient(request, patient_id):
     next_appointmens = Next_appointment.objects.filter(patient_name=patient)
     if  not next_appointmens:
         return render(request, 'dentist/patient.html',{
+            "patient": patient,
             "message" : "لا توجد مراجعات قادمة",
             "old_appointments": old_appointments
         })
@@ -283,22 +284,20 @@ def archived(request):
 
 #  Search function 
 def search(request):
-    if request.method == "GET": 
-        patient_name = request.GET.get('search')
-        try:
-            status = Patients.objects.filter(name__icontains= patient_name)
-                         
-        except Patients.DoesNotExist:
-            status =None
-        return render(request, 'dentist/search.html',{
-            "patient_name": status
-        })
-    else:
-        return HttpResponse("no results")
+    context_dict ={}
+    if request.method == "GET":
+        query = request.GET.get('search')
+        results = Patients.objects.filter(name__icontains=query)
+        if results.count():
+            context_dict['results'] = results
+        else:
+            context_dict['no_results'] = query
+    
+    return render(request, "dentist/search.html",{
+        "context_dict": context_dict
+    })
+   
 
-
-def modal(request):
-    return render(request, "dentist/modal.html")
 
 
 

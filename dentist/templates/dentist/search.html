@@ -4,7 +4,20 @@
 results
 {% endblock %}
 {% block content %}
+<div id="results-panel">
+    {% if context_dict.no_results %}
+       <h2>لا توجد نتائح بحث للكلمة <q>{{ context_dict.no_results }}</q></h2>
+    {% else %}
+        <h2>نتائج البحث</h2>
+        {% for result in context_dict.results %}
+         <h3> <a href="{% url 'patient' result.id %}">{{ result.name }}</a></h3>   
+        {% endfor %}
+    {% endif %}
+</div>
+<!-- {% if message %}
+    <h1> No Resutls</h1>
+{% endif %}
     {% for patient in patient_name %}
     <h2><a href="{% url 'patient' patient.id %}">{{patient.name}}</a></h2>
-    {% endfor %}
+    {% endfor %} -->
 {% endblock %}
