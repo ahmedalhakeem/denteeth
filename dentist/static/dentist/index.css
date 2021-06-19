@@ -397,6 +397,21 @@ button:hover{
  
 
 /* Patient_profile */
+
+.table-bordered{
+    background: #009879;
+    text-align: center;
+}
+#message{
+    text-align: center;
+    border-bottom: 4px solid rgb(207, 200, 190);
+    margin-bottom: 23px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    color: chocolate;
+    padding: 5px;
+}
 .title_info{
     /* background-color: #009879; */
     color: #000;

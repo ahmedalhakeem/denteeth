@@ -4,6 +4,7 @@
 Patient's Profile
 {% endblock %}
 {% block content %}
+
     <div class="wrap__info">
         <h1 style="text-align: center;">معلومات المراجع</h1>
         <div class="row title_info">
@@ -22,8 +23,31 @@ Patient's Profile
         </div>
     </div>
     {% if message %}
-    {{message}}
+    <h1 id="message">{{message}}</h1>
+    {% else %}
+    
+        <div class="next_app_wrapper">
+            <h1 style="text-align: center;">المواعيد القادمة</h1>
+            <table class="table table-bordered">
+                <thead class="table-primary">
+                    <th>اسم المراجع</th>
+                    <th>نوع المعالجة</th>
+                    <th>التاريخ </th>
+                    <th>الملاحظات</th>
+                </thead>
+                {% for appointment in next_appointments %}
+                <tr>
+                    <td>{{appointment.patient_name}}</td>
+                    <td>{{appointment.treatment}}</td>
+                    <td>{{appointment.date}}</td>
+                    <td>{{appointment.notes}}</td>    
+                </tr> 
+                {% endfor %}
+
+            </table>
+        </div>
     {% endif %}
+    
     <!-- Create Add appointment form-->   
     <div class="treat_container">
         <h1 style="text-align: center;">المواعيد السابقة</h1>
@@ -36,12 +60,8 @@ Patient's Profile
                     <th>الملاحظات</th>
                 </tr>
             </thead>
-            {% for appointment in next_appointments %}
-            <tr>
-                <td>{{appointment.treatment}}</td>
-                <td>{{appointment.date}}</td>    
-            </tr>
-            {% endfor %}
+
+            
                 {% for appointment in old_appointments %}
                 <tr class="table-success">
                     <td>{{appointment.treatment.treatments}}</td>

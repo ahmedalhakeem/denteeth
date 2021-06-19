@@ -126,7 +126,8 @@ def appointment(request):
             treatment_type = app_form.cleaned_data["treatment_type"]
             # total_amount = request.POST['total_amount']
             notes = request.POST['notes']
-            date = datetime.strptime(request.POST['appointment'], "%m/%d/%Y %H:%M")
+            date = datetime.strptime(request.POST['appointment'], "%Y-%m-%dT%H:%M")
+            # date = datetime.strptime(request.POST['appointment'], "%m/%d/%Y %H:%M")
             
            
 
@@ -192,9 +193,8 @@ def change_appointment(request, a_id):
     
     print(new_appointment)
     if request.method == 'POST':
-        #name = request.POST['name']
-        #treatment =request.POST['treatment']
-        date = datetime.strptime(request.POST['date'], "%m/%d/%Y %H:%M")
+        date = datetime.strptime(request.POST['date'], "%Y-%m-%dT%H:%M")
+        # date = datetime.strptime(request.POST['date'], "%m/%d/%Y %H:%M")
         notes = request.POST['notes']
 
         
@@ -221,13 +221,12 @@ def update_schedule(request):
         print(id)
         name = data['name']
         treatment = data['treatment']
-        date= datetime.strptime(data['date'], "%m/%d/%Y %H:%M")
+        # date = data['date']
+        date = datetime.strptime(data['date'], "%Y-%m-%dT%H:%M")
         notes = data['notes']
         paid_amount = data['paid_amount']
-        
-
-
-        #Delete this record from the Next appointment table
+    
+        #Delete this record from the Next appointment table.
         omitted_record = Next_appointment.objects.get(pk = id)
         patient_id = omitted_record.patient_name.id 
         patient = Patients.objects.get(pk=patient_id)
@@ -239,9 +238,7 @@ def update_schedule(request):
         # Archive the current appointment and save it 
         archived_appointment = Previous_appointment(patient_name= omitted_record.patient_name, treatment=omitted_record.treatment, date= omitted_record.date, 
         notes= omitted_record.notes, paid_amount=paid_amount)
-        archived_appointment.save()
-        # previous = Previous_appointment(patient_name= name, treatment= treatment, date=date, )
-        
+        archived_appointment.save()       
         patient.remaining_amount -= int(paid_amount)
         patient.save()
         print(f"id={patient_id}")
@@ -249,7 +246,6 @@ def update_schedule(request):
         print(paid_amount)
         omitted_record.delete()
         #archive this particular recodrd. Save it in the previous appointment
-        
 
         return JsonResponse({"message": "successful"})
     return JsonResponse({"message": "failed"})
@@ -297,7 +293,12 @@ def search(request):
         "context_dict": context_dict
     })
    
-
+def test_date(request):
+    if request.method == "GET":
+        return render(request, "dentist/date_test.html")
+    if request.method == "POST":
+        print(request.body)
+        return HttpResponse("date time ")
 
 
 

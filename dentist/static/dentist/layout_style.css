@@ -12,7 +12,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     background-image: linear-gradient(rgb(150, 195, 231) 60%, rgb(159, 159, 211));
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     height: 100%;
     padding: 0;
     top: 0;

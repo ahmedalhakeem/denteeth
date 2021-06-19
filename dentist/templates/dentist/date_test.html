@@ -1,0 +1,10 @@
+{% extends 'dentist/layout.html' %}
+{% load static %}
+
+{% block content %}
+<form action="{% url 'test_date'%}" method="POST">
+    {% csrf_token %}
+    <input type="datetime-local" name="date" >
+    <input type="submit">
+</form>
+{% endblock %} 
