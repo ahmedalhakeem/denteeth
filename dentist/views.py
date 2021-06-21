@@ -232,13 +232,19 @@ def update_schedule(request):
         patient = Patients.objects.get(pk=patient_id)
         treatment_id = omitted_record.treatment.id
         treatment_name = Treatment.objects.get(pk=treatment_id)
+        
+        
+        added_cost = treatment_name.treatments.total_cost
+        print(added_cost)
         # archive this appointment
         new_appointment = Next_appointment(patient_name=patient, treatment=treatment_name, date= date, notes=notes)
         new_appointment.save()
         # Archive the current appointment and save it 
         archived_appointment = Previous_appointment(patient_name= omitted_record.patient_name, treatment=omitted_record.treatment, date= omitted_record.date, 
         notes= omitted_record.notes, paid_amount=paid_amount)
-        archived_appointment.save()       
+        archived_appointment.save()
+        patient.remaining_amount += int(added_cost)
+        patient.save()
         patient.remaining_amount -= int(paid_amount)
         patient.save()
         print(f"id={patient_id}")
