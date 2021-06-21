@@ -14,5 +14,7 @@ urlpatterns = [
     path("update_schedule", views.update_schedule, name="update_schedule"),
     path("archived", views.archived, name="archived"),
     path("search", views.search, name="search"),
-    path("test", views.test_date, name="test_date")   
+    path("add_treatment", views.add_treatment, name="add_treatment")
+    
+    # path("test", views.test_date, name="test_date")   
 ]

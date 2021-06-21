@@ -181,7 +181,7 @@ def upcoming_appointments(request):
     else:
     
         return render(request, "dentist/upcoming_appointments.html",{
-            "message" : "No upcoming appointments"
+            "message" : "لا يوجد مواعيد قادمة"
         }) 
     
 # Change the currnet appointment    
@@ -298,14 +298,15 @@ def search(request):
     return render(request, "dentist/search.html",{
         "context_dict": context_dict
     })
-   
-def test_date(request):
-    if request.method == "GET":
-        return render(request, "dentist/date_test.html")
+def add_treatment(request):
     if request.method == "POST":
-        print(request.body)
-        return HttpResponse("date time ")
+        treatment_title = request.POST['treatment_title']
+        treatment_cost = request.POST['treatment_cost']
+        new_med_treatment = Medication_list(treatment_title=treatment_title, total_cost=treatment_cost)
+        new_med_treatment.save()
+        return HttpResponseRedirect(reverse('appointment'))
 
+   
 
 
  

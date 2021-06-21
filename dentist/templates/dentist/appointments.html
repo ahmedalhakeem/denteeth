@@ -10,7 +10,18 @@ Book a new appointment
     {% if message %}
         <h1>{{message}}</h1>
     {% endif %}
-
+    <div class="show_add_treatment">
+        <button id="add__treatbtn"> اضافة معالجة</button>
+    </div>
+    <div class="add_med_list">
+        <h2>اضافةنوع معالجة جديد</h2>
+        <form action="{% url 'add_treatment' %}" method="POST" class="medForm">
+            {% csrf_token %}
+            <input type="text" name="treatment_title" placeholder="ادخل نوع المعالجة" class="inForm" id="med_title">
+            <input type="number" name="treatment_cost" class="inForm" placeholder="ادخل كلفة المعالجةالجديدة" id="med_cost"> 
+            <button id="med_btn">حفظ</button>
+        </form>
+    </div>
     <div class="containers">
         <h2 id="main_title">استمارة حجز موعد</h2>
         <form action="{% url 'appointment' %}" method="POST">

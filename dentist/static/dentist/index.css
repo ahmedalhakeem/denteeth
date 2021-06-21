@@ -310,6 +310,58 @@ button:hover{
 
 
 /* appointment style */
+.show_add_treatment{
+    margin: 10px;
+    float: right;
+}
+.add_med_list{
+    top: 40px;
+    /* border: 1px solid black; */
+    width: 40%;
+    margin-top: 60px;
+    margin-right: 10px;
+    align-items: center;
+    
+    /* margin: auto; */
+}
+.add_med_list h2{
+    color: rgb(0, 0, 0);
+    float: right;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+    
+}
+.add_med_list form{
+    width: 80%;
+    text-align: right ;
+
+}
+.add_med_list form input{
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 20px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    width: 80%;
+}
+.add_med_list form button{
+    /* position:relative; */
+    /* float: right; */
+    border: 1px dotted black;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.currencyinput{
+    border: 1px inset #ccc;
+
+}
+.currencyinput input{
+    border: 0;
+}
+
+    
 #book__button, #save__button{
     margin: 10px 0px 10px 0px;
     width: 70px;
