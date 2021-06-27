@@ -1,0 +1,542 @@
+
+li, a, button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:burlywood;
+    height: 110px;
+}
+.logo {
+    cursor: pointer;
+}
+
+.nav__links{
+    list-style: none;
+    height: 100%;
+    border: 1px solid black;
+}
+.nav__links li{
+    display: inline-block;
+    padding: 0 20px;
+    margin: 10px;
+    height: 100%;
+    
+    
+}
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+    color:black;
+}
+.nav__links li a:hover {
+    color: white;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    /* border-radius: 100px; */
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+
+}
+.cta button{
+    border-radius: 15px;
+}
+
+/* CSS styling of the main page*/
+.wrapper {
+    display: flex;
+    position: absolute;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #f1f1f1;
+    width: 60%;
+    margin: auto;
+    left: 50%;
+}
+.add, .search, .all-patients {
+    border: 3px solid #f1f1f1;
+    width:30%;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 20px;
+    
+}
+
+/* CSS Styling of add_patient*/
+.hea{
+    background-color: #0088a9;
+    background-image: linear-gradient( #0088a9, #ccc );    
+    /* border: 2px solid #f1f1f1;     */
+    /* transform: translate(0, -10px); */
+    border-radius: 10px;
+    width: 50%;
+    height: 50px;
+    margin: auto;
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+}
+.containers{
+    width: 60%;
+    margin:auto;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #edf0f1;
+    border-radius: 10px ;
+    /* border: 1px solid black; */
+}
+.containers .rows{
+  width: 100%;
+  margin-top: 20px;
+
+  /* height: 100px; */
+  /* border: 1px solid red; */
+  /* margin-right: 10px; */
+  /* float: left; */
+    
+}
+.col-25 {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 80%;
+    /* float: right; */
+    /* border: 1px solid black; */
+    
+    /* margin-top: 6px; */
+    /* border: 1px solid black; */
+    
+  }
+.containers #save__button{
+    margin-top: 30px;
+    float: right;
+    width: 200px;
+    height: 50px;
+    align-items: center; 
+    border: 0.5px solid black;
+}
+.containers h2{
+    text-align: center;
+    margin: 15px 0;
+}
+.inputForm{
+    width: 70%;
+    padding: 12px;
+    /* border: 1px solid rgb(0, 0, 0); */
+    /* border-radius: 4px; */
+    resize: vertical;
+    float: right;
+}
+.labelsForm {
+  width: 150px;
+  /* border: 1px solid rgb(199, 6, 6); */
+  padding: 12px 12px 12px 0;
+  margin-left: 20px;
+  margin-right: -100px;
+  font-size: 20px;
+  font-weight:bold;
+  float: right;
+}
+  
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 0.5px solid #009879;
+    margin-top: 30px;
+  }
+ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  
+/* CSS styling for List of Patients*/
+.patients_wrapper{
+    width: 40%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 0px;
+    margin-top: 40px;
+    
+
+}
+.patients_wrapper .list_of_names{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 80%;
+    /* border: 1px solid black; */
+}
+.list_of_names h2 {
+    color: #ccc;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    /* text-shadow: 2px 2px #000; */
+    color: rgb(3, 24, 3);
+    
+ 
+    
+}
+.page_no {
+    text-align: center;
+}
+.names{
+    width: 100%;
+    border-radius: 10px;
+}
+.patients__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: auto;
+    list-style: none;
+    text-align: center;
+}
+.patients__list .patient_item{
+    /* border: 1px solid black; */
+    background: rgb(3, 24, 3);
+    border-radius: 5px;
+    margin: 10px;
+}
+.patients__list .patient_item a{
+    color: #ccc;
+}
+.current{
+    font-size: 12px;
+    font-weight: 500;
+}
+.current #page_word{
+    color: rgb(55, 117, 61);
+}
+.current .num{
+    color: rgb(3, 22, 5);
+}
+
+.names li{
+    width: 100%;
+    margin: 5px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+    list-style: none;
+    
+}
+.names li a{
+    font-size: 30px;
+}
+.names li:hover{
+    background-color:burlywood;
+}
+.search__wrapper{
+    margin: auto;
+    width: 30%;
+    margin-top: 50px;
+
+}
+.search__box{
+    display: inline-block;
+    width: 70%;
+    height: 70px;
+    padding: 10px;
+    margin-bottom: 5px;
+    /* margin: 5px; */
+}
+.search__wrapper  input[type=submit]{
+    background-color:rgba(0, 136, 169, 1);
+    width: 20%;
+    height: auto;
+    font-size: 20px;
+    float: right;
+    margin: 10px;
+}
+@media screen and (max-width:900px) {
+    .search__wrapper{
+        display: none;
+    }
+}
+
+.patient-name{
+    border: 2px dotted #4caf50;
+    margin: 10px auto;
+    border-radius: 5%;
+    width: 50%;
+    position:relative;
+    
+}
+.patient-name a{
+    text-decoration: none;
+    width: 80%;
+}
+.page_links{
+    width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    display: block;
+
+    /* border: 1px solid black; */
+}
+.page_links a{
+    font-size: 12px;
+    margin: 3px 3px 1px 3px;
+}
+.page_links #first, .page_links #last_1{
+    color: rgb(114, 103, 103);
+    font-weight: 500;
+    font-size: 14px;
+}
+.page_links #pre_1, .page_links #next_1{
+    color: rgb(4, 56, 71);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+    
+
+
+/* appointment style */
+.show_add_treatment{
+    margin: 10px;
+    float: right;
+}
+.add_med_list{
+    top: 40px;
+    /* border: 1px solid black; */
+    width: 40%;
+    margin-top: 60px;
+    margin-right: 10px;
+    align-items: center;
+    
+    /* margin: auto; */
+}
+.add_med_list h2{
+    color: rgb(0, 0, 0);
+    float: right;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+    
+}
+.add_med_list form{
+    width: 80%;
+    text-align: right ;
+
+}
+.add_med_list form input{
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 20px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    width: 80%;
+}
+.add_med_list form button{
+    /* position:relative; */
+    /* float: right; */
+    border: 1px dotted black;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.currencyinput{
+    border: 1px inset #ccc;
+
+}
+.currencyinput input{
+    border: 0;
+}
+
+    
+#book__button, #save__button{
+    margin: 10px 0px 10px 0px;
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0088a9;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/*Next appointment table*/
+.wrapp{
+    width: 80%;
+    margin: auto;
+}
+.appointment-list{
+    display: grid;
+    width: 100%;
+    /* height: 100px; */
+    /* padding: 10px; */
+    grid-template-columns: repeat(5, 1fr);
+
+}
+.appointment-list > div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    text-align: center;
+    /* padding-top: 15px; */
+    background: rgb(130, 131, 129);
+    margin: 5px 2px 5px 2px;
+    /* margin: 2px; */
+}
+/* .appointment-list > div:nth-child(odd){
+    color: rebeccapurple;
+} */
+.titles{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    /* padding: 1em; */
+  
+    /* grid-gap: 10px; */
+    /* width: 100%; */
+
+}
+
+.titles >div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    text-align: center;
+    background:#c9c5b1;
+    color: white;
+    
+    margin: 2px;
+    
+}
+
+.edit__wrapp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+
+}
+.edit__wrapp button{
+    background: none;
+    margin: 0 1px 0 1px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;   
+}
+
+.edit:hover, .change:hover{
+    background-image: linear-gradient(rgb(192, 60, 60) 60%, rgb(159, 159, 211));
+    /* background-color: brown; */
+}
+ 
+
+/* Patient_profile */
+
+.table-bordered{
+    background: #009879;
+    text-align: center;
+}
+#message{
+    text-align: center;
+    border-bottom: 4px solid rgb(207, 200, 190);
+    margin-bottom: 23px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    color: chocolate;
+    padding: 5px;
+}
+.title_info{
+    /* background-color: #009879; */
+    color: #000;
+}
+.title_info>div{
+    background-color: #82cebf;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0px 2px 0px 2px;
+}
+.information>div{
+    border-radius: 10px;
+    margin: 4px 2px 0px 2px;
+    border: 1px solid black;
+    font-size: 30px;
+    text-align: center;
+}
+.wrap__info{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.m_1, .m_2{
+    text-align: center;
+    display: block;
+
+} 
+.m_1 span, .m_2 span{
+    font-size: 20px;
+    color: lightcoral;
+    font-weight: 500;
+}
+.required::after{
+    content: "*";
+    color: red;
+}
+.mf_2{
+    /* display: inline-flex; */
+    position: relative;
+    padding: 10px;
+    text-align: center;
+}
+
+.mf_2 button{
+    /* float: right; */
+    margin-left: 5px;
+}
+.change__form{
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    
+}
+
+.change__form input[type=text], .change__form input[type=submit]{
+   display: inline-block;
+   border-radius: 4px;
+    width: 100%;
+    height: 30px;
+    margin:30px auto 10px auto;
+    background-color: none;
+}
+.change__form input[type=submit]{
+    width: 100%;
+    background-color: #af4f4c;
+    color: #fff;
+}
+.change__form h3{
+    float: right;
+    color: #af4f4c;
+}
