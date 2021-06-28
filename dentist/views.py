@@ -102,17 +102,23 @@ def patient(request, patient_id):
     patient = Patients.objects.get(pk=patient_id)
     old_appointments = Previous_appointment.objects.filter(patient_name=patient).order_by('-date')
     next_appointmens = Next_appointment.objects.filter(patient_name=patient)
+    treatment = Treatment.objects.filter(p_name=patient).order_by('-date_created')
+    for item in treatment:
+        print(item.paid_amount)
+
     if  not next_appointmens:
         return render(request, 'dentist/patient.html',{
             "patient": patient,
             "message" : "لا توجد مراجعات قادمة",
-            "old_appointments": old_appointments
+            "old_appointments": old_appointments,
+            "treatment" : treatment
         })
     else:
         return render(request, 'dentist/patient.html',{
             "patient": patient,
             "old_appointments": old_appointments,
-            "next_appointments": next_appointmens
+            "next_appointments": next_appointmens,
+            "treatment" : treatment
     })
 
 # make a new  appointment
@@ -124,31 +130,23 @@ def appointment(request):
         if app_form.is_valid():
             patient_name = app_form.cleaned_data["patient_name"]
             treatment_type = app_form.cleaned_data["treatment_type"]
-            # total_amount = request.POST['total_amount']
             notes = request.POST['notes']
             date = datetime.strptime(request.POST['appointment'], "%Y-%m-%dT%H:%M")
-            # date = datetime.strptime(request.POST['appointment'], "%m/%d/%Y %H:%M")
-            
+            paid_amount = request.POST['paid_amount']
+            remaining_amount = request.POST['remaining_amount']
            
 
             # Save the treatment and type of medication as well as the cost of medication 
-            treatment = Treatment(p_name=patient_name, treatments=treatment_type,notes=notes)
+            treatment = Treatment(p_name=patient_name, treatments=treatment_type,notes=notes, paid_amount=paid_amount)
             if treatment:
                 treatment.save()
             else:
                 return HttpResponse({'msg': "no treatment was added"})
-            #extract the person whose its name is /patient_name/
-
-
             patient_id = treatment.p_name.id
             patient = Patients.objects.get(pk=patient_id)
-            # extract the amount of treatment and add it to the remaining amount of the patient
-            cost = treatment.treatments.total_cost
-            patient.remaining_amount += int(cost)
+            patient.remaining_amount = remaining_amount
             patient.save()
-            #print(patient.name)
-        
-            
+
             # now, we can make a new appointment for this particular patient
             new_appointment = Next_appointment(patient_name=patient_name, treatment=treatment, date=date, notes=notes)
             all_appointments = Next_appointment.objects.all()
@@ -301,8 +299,7 @@ def search(request):
 def add_treatment(request):
     if request.method == "POST":
         treatment_title = request.POST['treatment_title']
-        treatment_cost = request.POST['treatment_cost']
-        new_med_treatment = Medication_list(treatment_title=treatment_title, total_cost=treatment_cost)
+        new_med_treatment = Medication_list(treatment_title=treatment_title)
         new_med_treatment.save()
         return HttpResponseRedirect(reverse('appointment'))
 

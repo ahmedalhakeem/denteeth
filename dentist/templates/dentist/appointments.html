@@ -18,7 +18,7 @@ Book a new appointment
         <form action="{% url 'add_treatment' %}" method="POST" class="medForm">
             {% csrf_token %}
             <input type="text" name="treatment_title" placeholder="ادخل نوع المعالجة" class="inForm" id="med_title">
-            <input type="number" name="treatment_cost" class="inForm" placeholder="ادخل كلفة المعالجةالجديدة" id="med_cost"> 
+            <!-- <input type="number" name="treatment_cost" class="inForm" placeholder="ادخل كلفة المعالجةالجديدة" id="med_cost">  -->
             <button id="med_btn">حفظ</button>
         </form>
     </div>
@@ -44,6 +44,18 @@ Book a new appointment
             <div class="col-25">
                 <label for="notes" class="labelsForm">ملاحظات</label>
                 <input type="text" class="inputForm" name="notes" id="new_note">
+            </div>
+        </div>
+        <div class="rows">
+            <div class="col-25">
+                <label for="notes" class="labelsForm">المبلغ المدفوع</label>
+                <input type="text" class="inputForm" name="paid_amount" id="new_note">
+            </div>
+        </div>
+        <div class="rows">
+            <div class="col-25">
+                <label for="notes" class="labelsForm">المبلغ المتبقي</label>
+                <input type="text" class="inputForm" name="remaining_amount" id="new_note">
             </div>
         </div>
         <input id="save__button" type="submit" value="حجز" style="float: right;">

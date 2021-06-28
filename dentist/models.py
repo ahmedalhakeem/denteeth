@@ -26,7 +26,7 @@ class Patients(models.Model):
         return f"{self.name}"
 class Medication_list(models.Model):
     treatment_title = models.CharField(max_length=100)
-    total_cost = models.IntegerField(default=0)
+    # total_cost = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.treatment_title}"
@@ -38,6 +38,8 @@ class Treatment(models.Model):
     status= models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     notes = models.CharField(max_length=100, default="")
+    paid_amount = models.IntegerField(default=0)
+   
 
     def __str__(self):
         return f"{self.treatments}"

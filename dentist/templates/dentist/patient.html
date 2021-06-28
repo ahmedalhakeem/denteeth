@@ -22,10 +22,28 @@ Patient's Profile
             <div class="col">{{patient.remaining_amount}}</div>
         </div>
     </div>
+    <div class="paid_per_session">
+        <h1 style="text-align: center;">المبالغ المدفوعة</h1>
+        <table class="table table-bordered">
+            <thead class="table-primary">
+                <th>رقم المعالجة</th>
+                <th>نوع المعالجة</th>
+                <th>المبلغ المدفوع</th>
+                <th>تاريخ الدفع</th>
+            </thead>
+            {% for item in treatment %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.treatments }}</td>
+                <td>{{ item.paid_amount }}</td>
+                <td>{{ item.date_created}}</td>
+            </tr>
+            {% endfor %}
+        </table>  
+    </div>
     {% if message %}
     <h1 id="message">{{message}}</h1>
     {% else %}
-    
         <div class="next_app_wrapper">
             <h1 style="text-align: center;">المواعيد القادمة</h1>
             <table class="table table-bordered">
