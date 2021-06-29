@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-   selectdate();
-   
+
     const add_med_list = document.querySelector('.add_med_list');
     add_med_list.style.display = "none";
 
@@ -18,9 +17,6 @@ document.addEventListener('DOMContentLoaded', function(){
 }   
   
 });
-function selectdate(){
-    $('#datepicker').datetimepicker()
-}
 
 
 

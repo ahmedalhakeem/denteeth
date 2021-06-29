@@ -26,6 +26,7 @@ class Appointment(forms.Form):
     #class Meta:
         #model = Next_appointment
         #fields = ['patient_name', 'treatment', 'date', 'notes']
-    patient_name = forms.ModelChoiceField(required=True,label="اختر المريض",widget=forms.Select(attrs={"class": "inputForm"}), queryset=Patients.objects.all())
+    patient_name = forms.CharField(required=True,label="اختر المريض",widget=forms.TextInput(attrs={"class": "inputForm", "id": "autocompleted"}))
+    # patient_name = forms.ModelChoiceField(required=True,label="اختر المريض",widget=forms.Select(attrs={"class": "inputForm"}), queryset=Patients.objects.all())
     treatment_type = forms.ModelChoiceField(required=True,label="اختر نوع العلاج", widget=forms.Select(attrs={"class": "inputForm"}) ,queryset=Medication_list.objects.all())
     

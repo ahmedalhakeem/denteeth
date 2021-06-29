@@ -134,10 +134,11 @@ def appointment(request):
             date = datetime.strptime(request.POST['appointment'], "%Y-%m-%dT%H:%M")
             paid_amount = request.POST['paid_amount']
             remaining_amount = request.POST['remaining_amount']
+            patient = Patients.objects.get(name=patient_name)
            
 
             # Save the treatment and type of medication as well as the cost of medication 
-            treatment = Treatment(p_name=patient_name, treatments=treatment_type,notes=notes, paid_amount=paid_amount)
+            treatment = Treatment(p_name=patient, treatments=treatment_type,notes=notes, paid_amount=paid_amount)
             if treatment:
                 treatment.save()
             else:
@@ -148,7 +149,7 @@ def appointment(request):
             patient.save()
 
             # now, we can make a new appointment for this particular patient
-            new_appointment = Next_appointment(patient_name=patient_name, treatment=treatment, date=date, notes=notes)
+            new_appointment = Next_appointment(patient_name=patient, treatment=treatment, date=date, notes=notes)
             all_appointments = Next_appointment.objects.all()
             list = []
             # for apo in all_appointments:
@@ -163,8 +164,11 @@ def appointment(request):
                 return HttpResponseRedirect(reverse('upcoming_appointments'))
     
     else:
+        patients = Patients.objects.all()
+        print(patients)
         return render(request, "dentist/appointments.html",{
-            "form": Appointment()
+            "form": Appointment(),
+            'patients': patients,
         })
 
 @login_required
