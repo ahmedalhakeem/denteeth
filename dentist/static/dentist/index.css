@@ -394,10 +394,13 @@ button:hover{
     border-radius: 10px;
     text-align: center;
     /* padding-top: 15px; */
-    background: rgb(130, 131, 129);
+    background: rgb(6, 104, 117);
+    padding: 15px;
     margin: 5px 2px 5px 2px;
+    color: #f2f2f2;
     /* margin: 2px; */
 }
+
 /* .appointment-list > div:nth-child(odd){
     color: rebeccapurple;
 } */
@@ -419,7 +422,7 @@ button:hover{
     /* border: 1px solid black; */
     border-radius: 10px;
     text-align: center;
-    background:#c9c5b1;
+    background:#0e0b00;
     color: white;
     
     margin: 2px;
@@ -432,6 +435,7 @@ button:hover{
     border-radius: 10px;
     border: none;
     padding: 0;
+    
 
 }
 .edit__wrapp button{
@@ -439,8 +443,20 @@ button:hover{
     margin: 0 1px 0 1px;
     width: 100%;
     height: 100%;
-    border-radius: 10px;   
+    border-radius: 10px;
+     
 }
+button.edit{
+    color: black;
+    border: 1px solid white;
+    
+
+    
+}
+button.change{
+    color: black;
+    border: 1px solid white;
+  }
 
 .edit:hover, .change:hover{
     background-image: linear-gradient(rgb(192, 60, 60) 60%, rgb(159, 159, 211));
@@ -539,4 +555,11 @@ button:hover{
 .change__form h3{
     float: right;
     color: #af4f4c;
+}
+#results-panel{
+    width: 40%;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 50px;
 }

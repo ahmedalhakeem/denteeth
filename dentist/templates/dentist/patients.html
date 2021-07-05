@@ -29,16 +29,16 @@
 </div>
 <div class="page_links">
     <div class="current">
-       <span id="page_word">Page :</span> <span class="num">{{ pages.number }}</span>  of <span class="num">{{ pages.paginator.num_pages}}</span>
+       <span id="page_word">صفحة :</span> <span class="num">{{ pages.number }}</span>  من <span class="num">{{ pages.paginator.num_pages}}</span>
     </div>
     {% if pages.has_previous %}
-        <a href="{% url 'all_patients' %}?page=1" id="first">&laquo; first </a>
-        <a href="{% url 'all_patients'%}?page={{pages.previous_page_number}}" id="pre_1">Previous Page</a>
+        <a href="{% url 'all_patients' %}?page=1" id="first">&laquo; الصفحة الاولى </a>
+        <a href="{% url 'all_patients'%}?page={{pages.previous_page_number}}" id="pre_1">الصفحة السابقة</a>
     {% endif %}
     
     {% if pages.has_next %}
-    <a href="{% url 'all_patients' %}?page={{ pages.next_page_number }}" id="next_1">Next Page</a>
-    <a href="{% url 'all_patients' %}?page={{ pages.paginator.num_pages }}" id="last_1">last &raquo;</a>
+    <a href="{% url 'all_patients' %}?page={{ pages.next_page_number }}" id="next_1">الصفحة القادمة</a>
+    <a href="{% url 'all_patients' %}?page={{ pages.paginator.num_pages }}" id="last_1">الاخيرة &raquo;</a>
     {% endif %}
 </div>
     
