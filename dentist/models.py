@@ -55,7 +55,7 @@ class Previous_appointment(models.Model):
     treatment = models.ForeignKey(Treatment, on_delete=models.CASCADE, related_name="p_treatment")
     date = models.DateTimeField(auto_now=False, auto_now_add=False, default=None)
     notes = models.CharField(max_length=100, default="")
-    paid_amount = models.IntegerField(default=0)
+    # paid_amount = models.IntegerField(default=0)
 
     def serialize(self):
         return{

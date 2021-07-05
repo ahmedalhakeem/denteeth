@@ -220,38 +220,33 @@ def update_schedule(request):
     if request.method == "POST":
         data =  json.loads(request.body)
         id = data['id']
-        print(id)
         name = data['name']
         treatment = data['treatment']
-        # date = data['date']
         date = datetime.strptime(data['date'], "%Y-%m-%dT%H:%M")
         notes = data['notes']
-        paid_amount = data['paid_amount']
-    
-        #Delete this record from the Next appointment table.
+        # paid_amount = data['paid_amount']
+        # remaining_amount = data['remaining_amount']
+        #Delete this record from the Next appointment table###.
         omitted_record = Next_appointment.objects.get(pk = id)
+        # extract  the patient## 
         patient_id = omitted_record.patient_name.id 
         patient = Patients.objects.get(pk=patient_id)
+        #extract the treatement###
         treatment_id = omitted_record.treatment.id
         treatment_name = Treatment.objects.get(pk=treatment_id)
         
+        # added_cost = treatment_name.treatments.total_cost
         
-        added_cost = treatment_name.treatments.total_cost
-        print(added_cost)
         # archive this appointment
         new_appointment = Next_appointment(patient_name=patient, treatment=treatment_name, date= date, notes=notes)
         new_appointment.save()
         # Archive the current appointment and save it 
         archived_appointment = Previous_appointment(patient_name= omitted_record.patient_name, treatment=omitted_record.treatment, date= omitted_record.date, 
-        notes= omitted_record.notes, paid_amount=paid_amount)
+        notes= omitted_record.notes)
         archived_appointment.save()
-        patient.remaining_amount += int(added_cost)
-        patient.save()
-        patient.remaining_amount -= int(paid_amount)
-        patient.save()
         print(f"id={patient_id}")
         # print(omitted_record)
-        print(paid_amount)
+        #  print(paid_amount)
         omitted_record.delete()
         #archive this particular recodrd. Save it in the previous appointment
 
@@ -275,10 +270,10 @@ def archived(request):
         # check the price of a particular treatment
         med_type = Medication_list.objects.get(treatment_title=treatment_type)
         print(med_type)
-        patient.remaining_amount -= med_type.total_cost
-        patient.save()
+        # patient.remaining_amount -= med_type.total_cost
+        # patient.save()
         # archive this record
-        archive_appointment = Previous_appointment(patient_name=record.patient_name, treatment=record.treatment, date=record.date, notes=record.notes, paid_amount= med_type.total_cost)
+        archive_appointment = Previous_appointment(patient_name=record.patient_name, treatment=record.treatment, date=record.date, notes=record.notes)
         archive_appointment.save()
         record.delete()
 

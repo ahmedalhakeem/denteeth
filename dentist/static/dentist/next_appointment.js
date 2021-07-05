@@ -69,11 +69,12 @@ function show_schedule_form(){
 function update_schedule(){
     const patient_name = document.querySelector('#patient_name');
     const treatment = document.querySelector('#treatment_type').value;
-    const paid_amount = document.querySelector('#paid_amount').value;
+    // const paid_amount = document.querySelector('#paid_amount').value;
     const date = document.querySelector('#new_date').value;
+    // const remaining_amount = document.querySelector('#remaining_amount').value;
     const notes = document.querySelector('#notes').value;
     const id = patient_name.dataset.id;
-    const data = {'id': id,'name': patient_name, 'treatment': treatment, 'paid_amount': paid_amount, 'date': date, 'notes': notes}
+    const data = {'id': id,'name': patient_name, 'treatment': treatment,   'date': date, 'notes': notes}
     console.log(data);
     fetch('update_schedule',{
         method: 'POST',

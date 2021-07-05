@@ -77,10 +77,14 @@ Next_appointments
                                 <label class="form-label">نوع العلاج</label>
                                 <input type="text" id="treatment_type" class="form-control" disabled>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="form-labe required">المبلغ المدفوع</label>
                                 <input type="text" id="paid_amount" class="form-control" required>
-                            </div>
+                            </div> -->
+                            <!-- <div class="mb-3">
+                                <label class="form-labe required">المبلغ المتبقي</label>
+                                <input type="text" id="remaining_amount" class="form-control" required>
+                            </div> -->
                             <div class="mb-3">
                                 <label class="form-labe required">تاريخ الحجز القادم</label>
                                 <input type="datetime-local" class="form-control" id="new_date" required>
@@ -107,6 +111,6 @@ Next_appointments
     {% endblock %}
     {% block script %}
     <script src="{% static 'dentist/next_appointment.js'%}"></script>
-    <script src="{% static 'dentist/index.js'%}"></script>
+    <!-- <script src="{% static 'dentist/index.js'%}"></script> -->
 
     {% endblock %}
